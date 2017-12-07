@@ -1,0 +1,13 @@
+var _drathier$elm_graph$Graph_Pair$mapEdge = F2(
+	function (fn, graph) {
+		return A2(
+			_drathier$elm_graph$Graph$mapEdge,
+			_elm_lang$core$Basics$curry(fn),
+			graph);
+	});
+var _drathier$elm_graph$Graph_Pair$updateEdge = _elm_lang$core$Basics$uncurry(_drathier$elm_graph$Graph$updateEdge);
+var _drathier$elm_graph$Graph_Pair$removeEdgeData = _elm_lang$core$Basics$uncurry(_drathier$elm_graph$Graph$removeEdgeData);
+var _drathier$elm_graph$Graph_Pair$removeEdge = _elm_lang$core$Basics$uncurry(_drathier$elm_graph$Graph$removeEdge);
+var _drathier$elm_graph$Graph_Pair$insertEdgeData = _elm_lang$core$Basics$uncurry(_drathier$elm_graph$Graph$insertEdgeData);
+var _drathier$elm_graph$Graph_Pair$insertEdge = _elm_lang$core$Basics$uncurry(_drathier$elm_graph$Graph$insertEdge);
+var _drathier$elm_graph$Graph_Pair$getEdgeData = _elm_lang$core$Basics$uncurry(_drathier$elm_graph$Graph$getEdgeData);

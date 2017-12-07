@@ -1,0 +1,10 @@
+var _iosphere$elm_network_graph$Graph_Edge$filterForIdentifiers = function (identifiers) {
+	return _elm_lang$core$List$filter(
+		function (edge) {
+			return A2(_elm_lang$core$Set$member, edge.to, identifiers) && A2(_elm_lang$core$Set$member, edge.from, identifiers);
+		});
+};
+var _iosphere$elm_network_graph$Graph_Edge$Edge = F2(
+	function (a, b) {
+		return {from: a, to: b};
+	});

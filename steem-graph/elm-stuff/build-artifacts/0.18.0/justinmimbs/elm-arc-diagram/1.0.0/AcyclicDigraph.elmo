@@ -1,0 +1,105 @@
+var _justinmimbs$elm_arc_diagram$AcyclicDigraph$invertDict = A2(
+	_elm_lang$core$Dict$foldl,
+	F2(
+		function (v, k) {
+			return A2(
+				_elm_lang$core$Dict$update,
+				k,
+				function (_p0) {
+					return _elm_lang$core$Maybe$Just(
+						A2(
+							_elm_lang$core$Set$insert,
+							v,
+							A2(_elm_lang$core$Maybe$withDefault, _elm_lang$core$Set$empty, _p0)));
+				});
+		}),
+	_elm_lang$core$Dict$empty);
+var _justinmimbs$elm_arc_diagram$AcyclicDigraph$topologicalSortBy = function (toComparable) {
+	return function (_p1) {
+		return A2(
+			_elm_lang$core$List$concatMap,
+			function (_p2) {
+				return A2(
+					_elm_lang$core$List$sortBy,
+					toComparable,
+					_elm_lang$core$Set$toList(_p2));
+			},
+			_elm_lang$core$Dict$values(
+				_justinmimbs$elm_arc_diagram$AcyclicDigraph$invertDict(_p1)));
+	};
+};
+var _justinmimbs$elm_arc_diagram$AcyclicDigraph$topologicalRankHelp = F4(
+	function (rank, addNodes, edges, rankedNodes) {
+		topologicalRankHelp:
+		while (true) {
+			if (_elm_lang$core$Set$isEmpty(addNodes)) {
+				return {ctor: '_Tuple2', _0: edges, _1: rankedNodes};
+			} else {
+				var _p3 = A2(
+					_elm_lang$core$Set$partition,
+					function (_p4) {
+						return A3(
+							_elm_lang$core$Basics$flip,
+							_elm_lang$core$Set$member,
+							addNodes,
+							_elm_lang$core$Tuple$first(_p4));
+					},
+					edges);
+				var removedEdges = _p3._0;
+				var remainingEdges = _p3._1;
+				var addNodesNext = A2(
+					_elm_lang$core$Set$diff,
+					A2(_elm_lang$core$Set$map, _elm_lang$core$Tuple$second, removedEdges),
+					A2(_elm_lang$core$Set$map, _elm_lang$core$Tuple$second, remainingEdges));
+				var newRankedNodes = A3(
+					_elm_lang$core$Set$foldl,
+					A2(_elm_lang$core$Basics$flip, _elm_lang$core$Dict$insert, rank),
+					rankedNodes,
+					addNodes);
+				var _v0 = rank + 1,
+					_v1 = addNodesNext,
+					_v2 = remainingEdges,
+					_v3 = newRankedNodes;
+				rank = _v0;
+				addNodes = _v1;
+				edges = _v2;
+				rankedNodes = _v3;
+				continue topologicalRankHelp;
+			}
+		}
+	});
+var _justinmimbs$elm_arc_diagram$AcyclicDigraph$sourceNodes = function (edges) {
+	return A2(
+		_elm_lang$core$Set$diff,
+		A2(_elm_lang$core$Set$map, _elm_lang$core$Tuple$first, edges),
+		A2(_elm_lang$core$Set$map, _elm_lang$core$Tuple$second, edges));
+};
+var _justinmimbs$elm_arc_diagram$AcyclicDigraph$topologicalRank = function (_p5) {
+	var _p6 = _p5;
+	var _p8 = _p6._0;
+	var _p7 = A4(
+		_justinmimbs$elm_arc_diagram$AcyclicDigraph$topologicalRankHelp,
+		1,
+		_justinmimbs$elm_arc_diagram$AcyclicDigraph$sourceNodes(_p8),
+		_p8,
+		_elm_lang$core$Dict$empty);
+	var remainingEdges = _p7._0;
+	var rankedNodes = _p7._1;
+	return _elm_lang$core$Set$isEmpty(remainingEdges) ? rankedNodes : _elm_lang$core$Dict$empty;
+};
+var _justinmimbs$elm_arc_diagram$AcyclicDigraph$toEdges = function (_p9) {
+	var _p10 = _p9;
+	return _p10._0;
+};
+var _justinmimbs$elm_arc_diagram$AcyclicDigraph$AcyclicDigraph = function (a) {
+	return {ctor: 'AcyclicDigraph', _0: a};
+};
+var _justinmimbs$elm_arc_diagram$AcyclicDigraph$fromEdges = function (edges) {
+	var _p11 = _justinmimbs$elm_arc_diagram$Digraph$findCycles(edges);
+	if (_p11.ctor === '[]') {
+		return _elm_lang$core$Result$Ok(
+			_justinmimbs$elm_arc_diagram$AcyclicDigraph$AcyclicDigraph(edges));
+	} else {
+		return _elm_lang$core$Result$Err(_p11);
+	}
+};

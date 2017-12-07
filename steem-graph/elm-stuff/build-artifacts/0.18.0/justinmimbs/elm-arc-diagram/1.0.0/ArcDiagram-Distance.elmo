@@ -1,0 +1,177 @@
+var _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$isNothing = function (m) {
+	var _p0 = m;
+	if (_p0.ctor === 'Just') {
+		return false;
+	} else {
+		return true;
+	}
+};
+var _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$rgba = F4(
+	function (r, g, b, a) {
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			'rgba(',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				A2(
+					_elm_lang$core$String$join,
+					', ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						A2(
+							_elm_lang$core$List$map,
+							_elm_lang$core$Basics$toString,
+							{
+								ctor: '::',
+								_0: r,
+								_1: {
+									ctor: '::',
+									_0: g,
+									_1: {
+										ctor: '::',
+										_0: b,
+										_1: {ctor: '[]'}
+									}
+								}
+							}),
+						{
+							ctor: '::',
+							_0: _elm_lang$core$Basics$toString(a),
+							_1: {ctor: '[]'}
+						})),
+				')'));
+	});
+var _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$redFromAlpha = A3(_justinmimbs$elm_arc_diagram$ArcDiagram_Distance$rgba, 224, 69, 39);
+var _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$blueFromAlpha = A3(_justinmimbs$elm_arc_diagram$ArcDiagram_Distance$rgba, 35, 135, 206);
+var _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$colorFromDistance = function (distance) {
+	var _p1 = distance;
+	if (_p1.ctor === 'Just') {
+		var _p2 = _p1._0;
+		if (_elm_lang$core$Native_Utils.eq(_p2, 0)) {
+			return 'black';
+		} else {
+			var colorFromAlpha = (_elm_lang$core$Native_Utils.cmp(_p2, 0) > 0) ? _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$blueFromAlpha : _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$redFromAlpha;
+			return colorFromAlpha(
+				1 - ((A2(
+					_elm_lang$core$Basics$min,
+					3,
+					_elm_lang$core$Basics$toFloat(
+						_elm_lang$core$Basics$abs(_p2))) - 1) * 0.3));
+		}
+	} else {
+		return 'rgba(0, 0, 0, 0.2)';
+	}
+};
+var _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$distanceForEdge = F2(
+	function (distancesFrom, _p3) {
+		var _p4 = _p3;
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			_elm_lang$core$Maybe$Nothing,
+			A3(
+				_elm_lang$core$Maybe$map2,
+				F2(
+					function (da, db) {
+						return ((_elm_lang$core$Native_Utils.cmp(da, 0) > -1) && (_elm_lang$core$Native_Utils.cmp(db, 0) > -1)) ? _elm_lang$core$Maybe$Just(da) : (((_elm_lang$core$Native_Utils.cmp(da, 0) < 1) && (_elm_lang$core$Native_Utils.cmp(db, 0) < 1)) ? _elm_lang$core$Maybe$Just(db) : _elm_lang$core$Maybe$Nothing);
+					}),
+				A2(_elm_lang$core$Dict$get, _p4._0, distancesFrom),
+				A2(_elm_lang$core$Dict$get, _p4._1, distancesFrom)));
+	});
+var _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$labelColor = function (isDimmed) {
+	return isDimmed ? 'rgb(200, 200, 200)' : 'black';
+};
+var _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$viewLabelDimmed = F2(
+	function (isDimmed, string) {
+		return A2(
+			_elm_lang$svg$Svg$text_,
+			{
+				ctor: '::',
+				_0: _elm_lang$svg$Svg_Attributes$x('4px'),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$svg$Svg_Attributes$fontFamily('Helvetica, Arial'),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$svg$Svg_Attributes$fontSize('12px'),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$svg$Svg_Attributes$dominantBaseline('middle'),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$svg$Svg_Attributes$fill(
+									_justinmimbs$elm_arc_diagram$ArcDiagram_Distance$labelColor(isDimmed)),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$svg$Svg$text(string),
+				_1: {ctor: '[]'}
+			});
+	});
+var _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$defaultDistancePaint = {
+	viewLabel: F2(
+		function (n, d) {
+			return A2(
+				_justinmimbs$elm_arc_diagram$ArcDiagram_Distance$viewLabelDimmed,
+				_justinmimbs$elm_arc_diagram$ArcDiagram_Distance$isNothing(d),
+				_elm_lang$core$Basics$toString(n));
+		}),
+	colorNode: _elm_lang$core$Basics$always(_justinmimbs$elm_arc_diagram$ArcDiagram_Distance$colorFromDistance),
+	colorEdge: _elm_lang$core$Basics$always(_justinmimbs$elm_arc_diagram$ArcDiagram_Distance$colorFromDistance)
+};
+var _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$paint = F3(
+	function (_p5, graph, node) {
+		var _p6 = _p5;
+		var outgoing = _justinmimbs$elm_arc_diagram$Digraph$toAdjacencyList(
+			_justinmimbs$elm_arc_diagram$AcyclicDigraph$toEdges(graph));
+		var incoming = _justinmimbs$elm_arc_diagram$Digraph$transpose(outgoing);
+		var distancesFrom = A2(
+			_elm_lang$core$Dict$union,
+			A2(_justinmimbs$elm_arc_diagram$Digraph$distancesFrom, node, outgoing),
+			A2(
+				_elm_lang$core$Dict$map,
+				_elm_lang$core$Basics$always(_elm_lang$core$Basics$negate),
+				A2(_justinmimbs$elm_arc_diagram$Digraph$distancesFrom, node, incoming)));
+		return {
+			viewLabel: function (node) {
+				return A2(
+					_p6.viewLabel,
+					node,
+					A2(_elm_lang$core$Dict$get, node, distancesFrom));
+			},
+			colorNode: function (node) {
+				return A2(
+					_p6.colorNode,
+					node,
+					A2(_elm_lang$core$Dict$get, node, distancesFrom));
+			},
+			colorEdge: function (edge) {
+				return A2(
+					_p6.colorEdge,
+					edge,
+					A2(_justinmimbs$elm_arc_diagram$ArcDiagram_Distance$distanceForEdge, distancesFrom, edge));
+			}
+		};
+	});
+var _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$basicPaint = function (toLabel) {
+	return _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$paint(
+		_elm_lang$core$Native_Utils.update(
+			_justinmimbs$elm_arc_diagram$ArcDiagram_Distance$defaultDistancePaint,
+			{
+				viewLabel: F2(
+					function (n, d) {
+						return A2(
+							_justinmimbs$elm_arc_diagram$ArcDiagram_Distance$viewLabelDimmed,
+							_justinmimbs$elm_arc_diagram$ArcDiagram_Distance$isNothing(d),
+							toLabel(n));
+					})
+			}));
+};
+var _justinmimbs$elm_arc_diagram$ArcDiagram_Distance$DistancePaint = F3(
+	function (a, b, c) {
+		return {viewLabel: a, colorNode: b, colorEdge: c};
+	});

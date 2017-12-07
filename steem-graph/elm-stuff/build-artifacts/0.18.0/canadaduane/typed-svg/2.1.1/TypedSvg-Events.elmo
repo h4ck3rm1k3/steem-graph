@@ -1,0 +1,27 @@
+var _canadaduane$typed_svg$TypedSvg_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
+var _canadaduane$typed_svg$TypedSvg_Events$simpleOn = F2(
+	function (name, msg) {
+		return A2(
+			_canadaduane$typed_svg$TypedSvg_Events$on,
+			name,
+			_elm_lang$core$Json_Decode$succeed(msg));
+	});
+var _canadaduane$typed_svg$TypedSvg_Events$onBegin = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('begin');
+var _canadaduane$typed_svg$TypedSvg_Events$onEnd = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('end');
+var _canadaduane$typed_svg$TypedSvg_Events$onRepeat = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('repeat');
+var _canadaduane$typed_svg$TypedSvg_Events$onAbort = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('abort');
+var _canadaduane$typed_svg$TypedSvg_Events$onError = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('error');
+var _canadaduane$typed_svg$TypedSvg_Events$onResize = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('resize');
+var _canadaduane$typed_svg$TypedSvg_Events$onScroll = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('scroll');
+var _canadaduane$typed_svg$TypedSvg_Events$onLoad = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('load');
+var _canadaduane$typed_svg$TypedSvg_Events$onUnload = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('unload');
+var _canadaduane$typed_svg$TypedSvg_Events$onZoom = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('zoom');
+var _canadaduane$typed_svg$TypedSvg_Events$onActivate = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('activate');
+var _canadaduane$typed_svg$TypedSvg_Events$onClick = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('click');
+var _canadaduane$typed_svg$TypedSvg_Events$onFocusIn = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('focusin');
+var _canadaduane$typed_svg$TypedSvg_Events$onFocusOut = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('focusout');
+var _canadaduane$typed_svg$TypedSvg_Events$onMouseDown = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('mousedown');
+var _canadaduane$typed_svg$TypedSvg_Events$onMouseMove = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('mousemove');
+var _canadaduane$typed_svg$TypedSvg_Events$onMouseOut = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('mouseout');
+var _canadaduane$typed_svg$TypedSvg_Events$onMouseOver = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('mouseover');
+var _canadaduane$typed_svg$TypedSvg_Events$onMouseUp = _canadaduane$typed_svg$TypedSvg_Events$simpleOn('mouseup');

@@ -1,0 +1,561 @@
+var _jweir$sparkline$Sparkline_ops = _jweir$sparkline$Sparkline_ops || {};
+_jweir$sparkline$Sparkline_ops['*='] = F2(
+	function (fun, n) {
+		return fun(
+			A2(
+				_elm_lang$core$String$join,
+				' ',
+				A2(_elm_lang$core$List$map, _elm_lang$core$Basics$toString, n)));
+	});
+var _jweir$sparkline$Sparkline_ops = _jweir$sparkline$Sparkline_ops || {};
+_jweir$sparkline$Sparkline_ops[':='] = F2(
+	function (fun, n) {
+		return fun(
+			_elm_lang$core$Basics$toString(n));
+	});
+var _jweir$sparkline$Sparkline$scale = F2(
+	function (_p0, data) {
+		var _p1 = _p0;
+		return A2(
+			_elm_lang$core$List$map,
+			function (_p2) {
+				var _p3 = _p2;
+				return {
+					ctor: '_Tuple2',
+					_0: _p1._0(_p3._0),
+					_1: _p1._1(_p3._1)
+				};
+			},
+			data);
+	});
+var _jweir$sparkline$Sparkline$noNan = function (f) {
+	var _p4 = _elm_lang$core$Basics$isNaN(f);
+	if (_p4 === true) {
+		return 0;
+	} else {
+		return f;
+	}
+};
+var _jweir$sparkline$Sparkline$range = F2(
+	function (_p6, _p5) {
+		var _p7 = _p6;
+		var _p8 = _p5;
+		var _p10 = _p8._1._1;
+		var _p9 = _p8._0._0;
+		return {
+			ctor: '_Tuple2',
+			_0: function (x) {
+				return _jweir$sparkline$Sparkline$noNan((x - _p9) * (_p7._0 / (_p8._1._0 - _p9)));
+			},
+			_1: function (y) {
+				return _jweir$sparkline$Sparkline$noNan((_p10 - y) * (_p7._1 / (_p10 - _p8._0._1)));
+			}
+		};
+	});
+var _jweir$sparkline$Sparkline$ensure = function (_p11) {
+	var _p12 = _p11;
+	var _p16 = _p12._1._1;
+	var _p15 = _p12._0._1;
+	var _p14 = _p12._1._0;
+	var _p13 = _p12._0._0;
+	return _elm_lang$core$Native_Utils.eq(_p15, _p16) ? {
+		ctor: '_Tuple2',
+		_0: {
+			ctor: '_Tuple2',
+			_0: _p13,
+			_1: A2(_elm_lang$core$Basics$min, 0, _p15)
+		},
+		_1: {ctor: '_Tuple2', _0: _p14, _1: _p16}
+	} : {
+		ctor: '_Tuple2',
+		_0: {ctor: '_Tuple2', _0: _p13, _1: _p15},
+		_1: {ctor: '_Tuple2', _0: _p14, _1: _p16}
+	};
+};
+var _jweir$sparkline$Sparkline$domain = function (dataset) {
+	var flatData = A2(
+		_elm_lang$core$List$concatMap,
+		function (s) {
+			return s;
+		},
+		dataset);
+	var seed = A2(
+		_elm_lang$core$Maybe$withDefault,
+		{ctor: '_Tuple2', _0: 0, _1: 0},
+		_elm_lang$core$List$head(flatData));
+	return _jweir$sparkline$Sparkline$ensure(
+		A3(
+			_elm_lang$core$List$foldr,
+			F2(
+				function (_p18, _p17) {
+					var _p19 = _p18;
+					var _p22 = _p19._1;
+					var _p21 = _p19._0;
+					var _p20 = _p17;
+					return {
+						ctor: '_Tuple2',
+						_0: {
+							ctor: '_Tuple2',
+							_0: A2(_elm_lang$core$Basics$min, _p20._0._0, _p21),
+							_1: A2(_elm_lang$core$Basics$min, _p20._0._1, _p22)
+						},
+						_1: {
+							ctor: '_Tuple2',
+							_0: A2(_elm_lang$core$Basics$max, _p20._1._0, _p21),
+							_1: A2(_elm_lang$core$Basics$max, _p20._1._1, _p22)
+						}
+					};
+				}),
+			{ctor: '_Tuple2', _0: seed, _1: seed},
+			flatData));
+};
+var _jweir$sparkline$Sparkline$collect = F2(
+	function (_p23, path) {
+		var _p24 = _p23;
+		var command = _elm_lang$core$Native_Utils.eq(path, '') ? 'M' : 'L';
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			path,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				command,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Basics$toString(_p24._0),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						' ',
+						_elm_lang$core$Basics$toString(_p24._1)))));
+	});
+var _jweir$sparkline$Sparkline$path = F2(
+	function (range, data) {
+		return A3(
+			_elm_lang$core$List$foldr,
+			_jweir$sparkline$Sparkline$collect,
+			'',
+			A2(_jweir$sparkline$Sparkline$scale, range, data));
+	});
+var _jweir$sparkline$Sparkline$label = F5(
+	function (labels, data, styled, _p25, range) {
+		var _p26 = _p25;
+		var indexed = _elm_lang$core$Array$fromList(labels);
+		return A2(
+			_elm_lang$core$List$concatMap,
+			function (_p27) {
+				var _p28 = _p27;
+				var _p29 = A2(_elm_lang$core$Array$get, _p28._0, indexed);
+				if (_p29.ctor === 'Nothing') {
+					return {ctor: '[]'};
+				} else {
+					return {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$svg$Svg$text_,
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								{
+									ctor: '::',
+									_0: A2(_jweir$sparkline$Sparkline_ops[':='], _elm_lang$svg$Svg_Attributes$x, _p28._1._0),
+									_1: {
+										ctor: '::',
+										_0: A2(_jweir$sparkline$Sparkline_ops[':='], _elm_lang$svg$Svg_Attributes$y, _p28._1._1),
+										_1: {ctor: '[]'}
+									}
+								},
+								A2(_elm_lang$core$Basics_ops['++'], styled, _p29._0._1)),
+							{
+								ctor: '::',
+								_0: _elm_lang$svg$Svg$text(_p29._0._2),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					};
+				}
+			},
+			_elm_lang$core$Array$toIndexedList(
+				_elm_lang$core$Array$fromList(
+					A2(_jweir$sparkline$Sparkline$scale, range, data))));
+	});
+var _jweir$sparkline$Sparkline$bar = F5(
+	function (w, data, attr, _p31, _p30) {
+		var _p32 = _p31;
+		var _p40 = _p32._0._0;
+		var _p33 = _p30;
+		var _p39 = _p33._1;
+		return A2(
+			_elm_lang$core$List$map,
+			function (_p34) {
+				var _p35 = _p34;
+				var _p38 = _p35._1;
+				var _p37 = _p35._0;
+				var _p36 = (_elm_lang$core$Native_Utils.cmp(_p38, 0) < 0) ? {
+					ctor: '_Tuple2',
+					_0: _p39(_p38) - (_p39(_p38) - _p39(0)),
+					_1: _p39(_p38) - _p39(0)
+				} : {
+					ctor: '_Tuple2',
+					_0: _p39(_p38),
+					_1: _p39(0) - _p39(_p38)
+				};
+				var y_ = _p36._0;
+				var h = _p36._1;
+				var p = w * ((_p37 - _p40) / (_p32._1._0 - _p40));
+				return A2(
+					_elm_lang$svg$Svg$rect,
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						{
+							ctor: '::',
+							_0: A2(
+								_jweir$sparkline$Sparkline_ops[':='],
+								_elm_lang$svg$Svg_Attributes$x,
+								_p33._0(_p37) - p),
+							_1: {
+								ctor: '::',
+								_0: A2(_jweir$sparkline$Sparkline_ops[':='], _elm_lang$svg$Svg_Attributes$y, y_),
+								_1: {
+									ctor: '::',
+									_0: A2(_jweir$sparkline$Sparkline_ops[':='], _elm_lang$svg$Svg_Attributes$width, w),
+									_1: {
+										ctor: '::',
+										_0: A2(_jweir$sparkline$Sparkline_ops[':='], _elm_lang$svg$Svg_Attributes$height, h),
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						},
+						attr),
+					{ctor: '[]'});
+			},
+			data);
+	});
+var _jweir$sparkline$Sparkline$dot = F4(
+	function (data, attr, _p41, range) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (_p42) {
+				var _p43 = _p42;
+				return A2(
+					_elm_lang$svg$Svg$circle,
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						{
+							ctor: '::',
+							_0: A2(_jweir$sparkline$Sparkline_ops[':='], _elm_lang$svg$Svg_Attributes$cx, _p43._0),
+							_1: {
+								ctor: '::',
+								_0: A2(_jweir$sparkline$Sparkline_ops[':='], _elm_lang$svg$Svg_Attributes$cy, _p43._1),
+								_1: {
+									ctor: '::',
+									_0: A2(_jweir$sparkline$Sparkline_ops[':='], _elm_lang$svg$Svg_Attributes$r, 2),
+									_1: {ctor: '[]'}
+								}
+							}
+						},
+						attr),
+					{ctor: '[]'});
+			},
+			A2(_jweir$sparkline$Sparkline$scale, range, data));
+	});
+var _jweir$sparkline$Sparkline$line = F4(
+	function (data, attr, domain, range) {
+		return {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$svg$Svg$path,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					{
+						ctor: '::',
+						_0: _elm_lang$svg$Svg_Attributes$fill('none'),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$svg$Svg_Attributes$stroke('#000'),
+							_1: {
+								ctor: '::',
+								_0: A2(_jweir$sparkline$Sparkline_ops[':='], _elm_lang$svg$Svg_Attributes$strokeWidth, 1),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$svg$Svg_Attributes$d(
+										A2(_jweir$sparkline$Sparkline$path, range, data)),
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					},
+					attr),
+				{ctor: '[]'}),
+			_1: {ctor: '[]'}
+		};
+	});
+var _jweir$sparkline$Sparkline$area = F4(
+	function (data, attr, domain, range) {
+		var _p44 = domain;
+		var minx = _p44._0._0;
+		var miny = _p44._0._1;
+		var maxx = _p44._1._0;
+		var maxy = _p44._1._1;
+		var p0 = {ctor: '_Tuple2', _0: minx, _1: miny};
+		var p1 = {ctor: '_Tuple2', _0: maxx, _1: miny};
+		var cappedData = A2(
+			_elm_lang$core$Basics_ops['++'],
+			{
+				ctor: '::',
+				_0: p0,
+				_1: {ctor: '[]'}
+			},
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				data,
+				{
+					ctor: '::',
+					_0: p1,
+					_1: {ctor: '[]'}
+				}));
+		return A4(_jweir$sparkline$Sparkline$line, cappedData, attr, domain, range);
+	});
+var _jweir$sparkline$Sparkline$noop = F4(
+	function (data, attr, domain, range) {
+		return {ctor: '[]'};
+	});
+var _jweir$sparkline$Sparkline$zeroLine = F4(
+	function (_p45, attr, domain, range) {
+		var _p46 = domain;
+		var x1 = _p46._0._0;
+		var y1 = _p46._0._1;
+		var x2 = _p46._1._0;
+		var y2 = _p46._1._1;
+		return A4(
+			_jweir$sparkline$Sparkline$line,
+			{
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: x1, _1: 0},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: x2, _1: 0},
+					_1: {ctor: '[]'}
+				}
+			},
+			attr,
+			domain,
+			range);
+	});
+var _jweir$sparkline$Sparkline$frame = F2(
+	function (_p47, items) {
+		var _p48 = _p47;
+		var _p52 = _p48._0;
+		var _p51 = _p48._3;
+		var _p50 = _p48._2;
+		var _p49 = _p48._1;
+		return A2(
+			_elm_lang$svg$Svg$svg,
+			{
+				ctor: '::',
+				_0: A2(_jweir$sparkline$Sparkline_ops[':='], _elm_lang$svg$Svg_Attributes$width, _p52 + (2 * _p50)),
+				_1: {
+					ctor: '::',
+					_0: A2(_jweir$sparkline$Sparkline_ops[':='], _elm_lang$svg$Svg_Attributes$height, _p49 + (2 * _p51)),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_jweir$sparkline$Sparkline_ops['*='],
+							_elm_lang$svg$Svg_Attributes$viewBox,
+							{
+								ctor: '::',
+								_0: 0,
+								_1: {
+									ctor: '::',
+									_0: 0,
+									_1: {
+										ctor: '::',
+										_0: _p52 + (2 * _p50),
+										_1: {
+											ctor: '::',
+											_0: _p49 + (2 * _p51),
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$svg$Svg$g,
+					{
+						ctor: '::',
+						_0: _elm_lang$svg$Svg_Attributes$transform(
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								'translate',
+								_elm_lang$core$Basics$toString(
+									{ctor: '_Tuple2', _0: _p50, _1: _p51}))),
+						_1: {ctor: '[]'}
+					},
+					items),
+				_1: {ctor: '[]'}
+			});
+	});
+var _jweir$sparkline$Sparkline$tokenizer = function (msg) {
+	var _p53 = msg;
+	switch (_p53.ctor) {
+		case 'Bar':
+			return {
+				ctor: '_Tuple4',
+				_0: _jweir$sparkline$Sparkline$bar(_p53._0),
+				_1: _p53._1,
+				_2: {ctor: '[]'},
+				_3: false
+			};
+		case 'Dot':
+			return {
+				ctor: '_Tuple4',
+				_0: _jweir$sparkline$Sparkline$dot,
+				_1: _p53._0,
+				_2: {ctor: '[]'},
+				_3: false
+			};
+		case 'Line':
+			return {
+				ctor: '_Tuple4',
+				_0: _jweir$sparkline$Sparkline$line,
+				_1: _p53._0,
+				_2: {ctor: '[]'},
+				_3: false
+			};
+		case 'Area':
+			return {
+				ctor: '_Tuple4',
+				_0: _jweir$sparkline$Sparkline$area,
+				_1: _p53._0,
+				_2: {ctor: '[]'},
+				_3: false
+			};
+		case 'Domain':
+			return {
+				ctor: '_Tuple4',
+				_0: _jweir$sparkline$Sparkline$noop,
+				_1: _p53._0,
+				_2: {ctor: '[]'},
+				_3: false
+			};
+		case 'Label':
+			var _p56 = _p53._0;
+			var data = A2(
+				_elm_lang$core$List$map,
+				function (_p54) {
+					var _p55 = _p54;
+					return _p55._0;
+				},
+				_p56);
+			return {
+				ctor: '_Tuple4',
+				_0: _jweir$sparkline$Sparkline$label(_p56),
+				_1: data,
+				_2: {ctor: '[]'},
+				_3: false
+			};
+		case 'ZeroLine':
+			return {
+				ctor: '_Tuple4',
+				_0: _jweir$sparkline$Sparkline$zeroLine,
+				_1: {ctor: '[]'},
+				_2: {ctor: '[]'},
+				_3: false
+			};
+		case 'Independent':
+			var _p57 = _jweir$sparkline$Sparkline$tokenizer(_p53._0);
+			var m = _p57._0;
+			var d = _p57._1;
+			var a = _p57._2;
+			return {ctor: '_Tuple4', _0: m, _1: d, _2: a, _3: true};
+		default:
+			var _p58 = _jweir$sparkline$Sparkline$tokenizer(_p53._1);
+			var m = _p58._0;
+			var d = _p58._1;
+			var i = _p58._3;
+			return {ctor: '_Tuple4', _0: m, _1: d, _2: _p53._0, _3: i};
+	}
+};
+var _jweir$sparkline$Sparkline$sparkline = F2(
+	function (size, params) {
+		var tokens = A2(_elm_lang$core$List$map, _jweir$sparkline$Sparkline$tokenizer, params);
+		var domain_ = _jweir$sparkline$Sparkline$domain(
+			A2(
+				_elm_lang$core$List$concatMap,
+				function (_p59) {
+					var _p60 = _p59;
+					return {
+						ctor: '::',
+						_0: _p60._1,
+						_1: {ctor: '[]'}
+					};
+				},
+				A2(
+					_elm_lang$core$List$filter,
+					function (_p61) {
+						var _p62 = _p61;
+						return !_elm_lang$core$Native_Utils.eq(_p62._3, true);
+					},
+					tokens)));
+		var range_ = A2(_jweir$sparkline$Sparkline$range, size, domain_);
+		var collector = function (_p63) {
+			var _p64 = _p63;
+			var _p66 = _p64._1;
+			var _p65 = _elm_lang$core$Native_Utils.eq(_p64._3, true) ? {
+				ctor: '_Tuple2',
+				_0: _jweir$sparkline$Sparkline$domain(
+					{
+						ctor: '::',
+						_0: _p66,
+						_1: {ctor: '[]'}
+					}),
+				_1: A2(
+					_jweir$sparkline$Sparkline$range,
+					size,
+					_jweir$sparkline$Sparkline$domain(
+						{
+							ctor: '::',
+							_0: _p66,
+							_1: {ctor: '[]'}
+						}))
+			} : {ctor: '_Tuple2', _0: domain_, _1: range_};
+			var cdom = _p65._0;
+			var crange = _p65._1;
+			return A4(_p64._0, _p66, _p64._2, cdom, crange);
+		};
+		return A2(
+			_jweir$sparkline$Sparkline$frame,
+			size,
+			A2(_elm_lang$core$List$concatMap, collector, tokens));
+	});
+var _jweir$sparkline$Sparkline$Style = F2(
+	function (a, b) {
+		return {ctor: 'Style', _0: a, _1: b};
+	});
+var _jweir$sparkline$Sparkline$Independent = function (a) {
+	return {ctor: 'Independent', _0: a};
+};
+var _jweir$sparkline$Sparkline$ZeroLine = {ctor: 'ZeroLine'};
+var _jweir$sparkline$Sparkline$Label = function (a) {
+	return {ctor: 'Label', _0: a};
+};
+var _jweir$sparkline$Sparkline$Domain = function (a) {
+	return {ctor: 'Domain', _0: a};
+};
+var _jweir$sparkline$Sparkline$Area = function (a) {
+	return {ctor: 'Area', _0: a};
+};
+var _jweir$sparkline$Sparkline$Line = function (a) {
+	return {ctor: 'Line', _0: a};
+};
+var _jweir$sparkline$Sparkline$Dot = function (a) {
+	return {ctor: 'Dot', _0: a};
+};
+var _jweir$sparkline$Sparkline$Bar = F2(
+	function (a, b) {
+		return {ctor: 'Bar', _0: a, _1: b};
+	});

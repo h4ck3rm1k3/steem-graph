@@ -1,0 +1,88 @@
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$y2 = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$y2(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$y1 = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$y1(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$y = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$y(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$x2 = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$x2(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$x1 = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$x1(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$x = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$x(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$width = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$width(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$strokeWidth = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$strokeWidth(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$textLength = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$textLength(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$ry = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$ry(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$rx = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$rx(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$r = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$r(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$markerWidth = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$markerWidth(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$markerHeight = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$markerHeight(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$height = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$height(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$fy = function (yAxisCoord) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$fx(
+		_elm_community$typed_svg$TypedSvg_Types$em(yAxisCoord));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$fx = function (xAxisCoord) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$fx(
+		_elm_community$typed_svg$TypedSvg_Types$em(xAxisCoord));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$fontSize = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$fontSize(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$dy = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$dy(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$dx = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$dx(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$cy = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$cy(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};
+var _elm_community$typed_svg$TypedSvg_Attributes_InEm$cx = function (value) {
+	return _elm_community$typed_svg$TypedSvg_Attributes$cx(
+		_elm_community$typed_svg$TypedSvg_Types$em(value));
+};

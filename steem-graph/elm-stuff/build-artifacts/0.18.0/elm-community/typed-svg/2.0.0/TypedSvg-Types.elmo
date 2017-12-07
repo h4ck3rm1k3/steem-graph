@@ -1,0 +1,348 @@
+var _elm_community$typed_svg$TypedSvg_Types$AccumulateSum = {ctor: 'AccumulateSum'};
+var _elm_community$typed_svg$TypedSvg_Types$AccumulateNone = {ctor: 'AccumulateNone'};
+var _elm_community$typed_svg$TypedSvg_Types$AdditiveReplace = {ctor: 'AdditiveReplace'};
+var _elm_community$typed_svg$TypedSvg_Types$AdditiveNone = {ctor: 'AdditiveNone'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignNone = {ctor: 'AlignNone'};
+var _elm_community$typed_svg$TypedSvg_Types$Align = F2(
+	function (a, b) {
+		return {ctor: 'Align', _0: a, _1: b};
+	});
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentInherit = {ctor: 'AlignmentInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentMathematical = {ctor: 'AlignmentMathematical'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentHanging = {ctor: 'AlignmentHanging'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentAlphabetic = {ctor: 'AlignmentAlphabetic'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentIdeographic = {ctor: 'AlignmentIdeographic'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentTextAfterEdge = {ctor: 'AlignmentTextAfterEdge'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentAfterEdge = {ctor: 'AlignmentAfterEdge'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentCentral = {ctor: 'AlignmentCentral'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentMiddle = {ctor: 'AlignmentMiddle'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentTextBeforeEdge = {ctor: 'AlignmentTextBeforeEdge'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentBeforeEdge = {ctor: 'AlignmentBeforeEdge'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentBaseline = {ctor: 'AlignmentBaseline'};
+var _elm_community$typed_svg$TypedSvg_Types$AlignmentAuto = {ctor: 'AlignmentAuto'};
+var _elm_community$typed_svg$TypedSvg_Types$AnchorEnd = {ctor: 'AnchorEnd'};
+var _elm_community$typed_svg$TypedSvg_Types$AnchorMiddle = {ctor: 'AnchorMiddle'};
+var _elm_community$typed_svg$TypedSvg_Types$AnchorStart = {ctor: 'AnchorStart'};
+var _elm_community$typed_svg$TypedSvg_Types$AnchorInherit = {ctor: 'AnchorInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$AnimateTransformTypeSkewY = {ctor: 'AnimateTransformTypeSkewY'};
+var _elm_community$typed_svg$TypedSvg_Types$AnimateTransformTypeSkewX = {ctor: 'AnimateTransformTypeSkewX'};
+var _elm_community$typed_svg$TypedSvg_Types$AnimateTransformTypeRotate = {ctor: 'AnimateTransformTypeRotate'};
+var _elm_community$typed_svg$TypedSvg_Types$AnimateTransformTypeScale = {ctor: 'AnimateTransformTypeScale'};
+var _elm_community$typed_svg$TypedSvg_Types$AnimateTransformTypeTranslate = {ctor: 'AnimateTransformTypeTranslate'};
+var _elm_community$typed_svg$TypedSvg_Types$AttributeTypeXml = {ctor: 'AttributeTypeXml'};
+var _elm_community$typed_svg$TypedSvg_Types$AttributeTypeCss = {ctor: 'AttributeTypeCss'};
+var _elm_community$typed_svg$TypedSvg_Types$AttributeTypeAuto = {ctor: 'AttributeTypeAuto'};
+var _elm_community$typed_svg$TypedSvg_Types$ShiftInherit = {ctor: 'ShiftInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$ShiftLength = function (a) {
+	return {ctor: 'ShiftLength', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$ShiftPercentage = function (a) {
+	return {ctor: 'ShiftPercentage', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$ShiftSub = {ctor: 'ShiftSub'};
+var _elm_community$typed_svg$TypedSvg_Types$ShiftSuper = {ctor: 'ShiftSuper'};
+var _elm_community$typed_svg$TypedSvg_Types$ShiftBaseline = {ctor: 'ShiftBaseline'};
+var _elm_community$typed_svg$TypedSvg_Types$ShiftAuto = {ctor: 'ShiftAuto'};
+var _elm_community$typed_svg$TypedSvg_Types$CalcModeSpline = {ctor: 'CalcModeSpline'};
+var _elm_community$typed_svg$TypedSvg_Types$CalcModePaced = {ctor: 'CalcModePaced'};
+var _elm_community$typed_svg$TypedSvg_Types$CalcModeLinear = {ctor: 'CalcModeLinear'};
+var _elm_community$typed_svg$TypedSvg_Types$CalcModeDiscrete = {ctor: 'CalcModeDiscrete'};
+var _elm_community$typed_svg$TypedSvg_Types$ClipShape = F4(
+	function (a, b, c, d) {
+		return {ctor: 'ClipShape', _0: a, _1: b, _2: c, _3: d};
+	});
+var _elm_community$typed_svg$TypedSvg_Types$ClipInherit = {ctor: 'ClipInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$ClipAuto = {ctor: 'ClipAuto'};
+var _elm_community$typed_svg$TypedSvg_Types$ClipPathFunc = function (a) {
+	return {ctor: 'ClipPathFunc', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$ClipPathInherit = {ctor: 'ClipPathInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$ClipPathNone = {ctor: 'ClipPathNone'};
+var _elm_community$typed_svg$TypedSvg_Types$ClipRuleInherit = {ctor: 'ClipRuleInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$ClipRuleEvenOdd = {ctor: 'ClipRuleEvenOdd'};
+var _elm_community$typed_svg$TypedSvg_Types$ClipRuleNonZero = {ctor: 'ClipRuleNonZero'};
+var _elm_community$typed_svg$TypedSvg_Types$ColorInterpolationInherit = {ctor: 'ColorInterpolationInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$ColorInterpolationLinearRGB = {ctor: 'ColorInterpolationLinearRGB'};
+var _elm_community$typed_svg$TypedSvg_Types$ColorInterpolationSRGB = {ctor: 'ColorInterpolationSRGB'};
+var _elm_community$typed_svg$TypedSvg_Types$ColorInterpolationAuto = {ctor: 'ColorInterpolationAuto'};
+var _elm_community$typed_svg$TypedSvg_Types$ColorMatrixTypeLuminanceToAlpha = {ctor: 'ColorMatrixTypeLuminanceToAlpha'};
+var _elm_community$typed_svg$TypedSvg_Types$ColorMatrixTypeHueRotate = {ctor: 'ColorMatrixTypeHueRotate'};
+var _elm_community$typed_svg$TypedSvg_Types$ColorMatrixTypeSaturate = {ctor: 'ColorMatrixTypeSaturate'};
+var _elm_community$typed_svg$TypedSvg_Types$ColorMatrixTypeMatrix = {ctor: 'ColorMatrixTypeMatrix'};
+var _elm_community$typed_svg$TypedSvg_Types$ColorProfileInherit = {ctor: 'ColorProfileInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$ColorProfile = function (a) {
+	return {ctor: 'ColorProfile', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$ColorProfileSRGB = {ctor: 'ColorProfileSRGB'};
+var _elm_community$typed_svg$TypedSvg_Types$ColorProfileAuto = {ctor: 'ColorProfileAuto'};
+var _elm_community$typed_svg$TypedSvg_Types$CompositeOperatorArithmetic = {ctor: 'CompositeOperatorArithmetic'};
+var _elm_community$typed_svg$TypedSvg_Types$CompositeOperatorXor = {ctor: 'CompositeOperatorXor'};
+var _elm_community$typed_svg$TypedSvg_Types$CompositeOperatorAtop = {ctor: 'CompositeOperatorAtop'};
+var _elm_community$typed_svg$TypedSvg_Types$CompositeOperatorOut = {ctor: 'CompositeOperatorOut'};
+var _elm_community$typed_svg$TypedSvg_Types$CompositeOperatorIn = {ctor: 'CompositeOperatorIn'};
+var _elm_community$typed_svg$TypedSvg_Types$CompositeOperatorOver = {ctor: 'CompositeOperatorOver'};
+var _elm_community$typed_svg$TypedSvg_Types$CoordinateSystemObjectBoundingBox = {ctor: 'CoordinateSystemObjectBoundingBox'};
+var _elm_community$typed_svg$TypedSvg_Types$CoordinateSystemUserSpaceOnUse = {ctor: 'CoordinateSystemUserSpaceOnUse'};
+var _elm_community$typed_svg$TypedSvg_Types$Cursor = function (a) {
+	return {ctor: 'Cursor', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$CursorInherit = {ctor: 'CursorInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorHelp = {ctor: 'CursorHelp'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorWait = {ctor: 'CursorWait'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorText = {ctor: 'CursorText'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorWResize = {ctor: 'CursorWResize'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorSWResize = {ctor: 'CursorSWResize'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorSEResize = {ctor: 'CursorSEResize'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorNResize = {ctor: 'CursorNResize'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorNWResize = {ctor: 'CursorNWResize'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorNEResize = {ctor: 'CursorNEResize'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorEResize = {ctor: 'CursorEResize'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorMove = {ctor: 'CursorMove'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorPointer = {ctor: 'CursorPointer'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorCrosshair = {ctor: 'CursorCrosshair'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorDefault = {ctor: 'CursorDefault'};
+var _elm_community$typed_svg$TypedSvg_Types$CursorAuto = {ctor: 'CursorAuto'};
+var _elm_community$typed_svg$TypedSvg_Types$DirectionInherit = {ctor: 'DirectionInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$DirectionRTL = {ctor: 'DirectionRTL'};
+var _elm_community$typed_svg$TypedSvg_Types$DirectionLTR = {ctor: 'DirectionLTR'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayInherit = {ctor: 'DisplayInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayNone = {ctor: 'DisplayNone'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayTableCaption = {ctor: 'DisplayTableCaption'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayTableCell = {ctor: 'DisplayTableCell'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayTableColumn = {ctor: 'DisplayTableColumn'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayTableColumnGroup = {ctor: 'DisplayTableColumnGroup'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayTableRow = {ctor: 'DisplayTableRow'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayTableFooterGroup = {ctor: 'DisplayTableFooterGroup'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayTableHeaderGroup = {ctor: 'DisplayTableHeaderGroup'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayTableRowGroup = {ctor: 'DisplayTableRowGroup'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayInlineTable = {ctor: 'DisplayInlineTable'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayTable = {ctor: 'DisplayTable'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayMarker = {ctor: 'DisplayMarker'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayCompact = {ctor: 'DisplayCompact'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayRunIn = {ctor: 'DisplayRunIn'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayListItem = {ctor: 'DisplayListItem'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayBlock = {ctor: 'DisplayBlock'};
+var _elm_community$typed_svg$TypedSvg_Types$DisplayInline = {ctor: 'DisplayInline'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineInherit = {ctor: 'DominantBaselineInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineTextBeforeEdge = {ctor: 'DominantBaselineTextBeforeEdge'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineTextAfterEdge = {ctor: 'DominantBaselineTextAfterEdge'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineMiddle = {ctor: 'DominantBaselineMiddle'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineCentral = {ctor: 'DominantBaselineCentral'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineMathematical = {ctor: 'DominantBaselineMathematical'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineHanging = {ctor: 'DominantBaselineHanging'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineAlphabetic = {ctor: 'DominantBaselineAlphabetic'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineIdeographic = {ctor: 'DominantBaselineIdeographic'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineResetSize = {ctor: 'DominantBaselineResetSize'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineNoChange = {ctor: 'DominantBaselineNoChange'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineUseScript = {ctor: 'DominantBaselineUseScript'};
+var _elm_community$typed_svg$TypedSvg_Types$DominantBaselineAuto = {ctor: 'DominantBaselineAuto'};
+var _elm_community$typed_svg$TypedSvg_Types$DurationIndefinite = {ctor: 'DurationIndefinite'};
+var _elm_community$typed_svg$TypedSvg_Types$Duration = function (a) {
+	return {ctor: 'Duration', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$EdgeModeNone = {ctor: 'EdgeModeNone'};
+var _elm_community$typed_svg$TypedSvg_Types$EdgeModeWrap = {ctor: 'EdgeModeWrap'};
+var _elm_community$typed_svg$TypedSvg_Types$EdgeModeDuplicate = {ctor: 'EdgeModeDuplicate'};
+var _elm_community$typed_svg$TypedSvg_Types$FillRuleEvenOdd = {ctor: 'FillRuleEvenOdd'};
+var _elm_community$typed_svg$TypedSvg_Types$FillRuleNonZero = {ctor: 'FillRuleNonZero'};
+var _elm_community$typed_svg$TypedSvg_Types$FillNone = {ctor: 'FillNone'};
+var _elm_community$typed_svg$TypedSvg_Types$Fill = function (a) {
+	return {ctor: 'Fill', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$Filter = function (a) {
+	return {ctor: 'Filter', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$FilterInherit = {ctor: 'FilterInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$FilterNone = {ctor: 'FilterNone'};
+var _elm_community$typed_svg$TypedSvg_Types$FloodICC = function (a) {
+	return {ctor: 'FloodICC', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$Flood = function (a) {
+	return {ctor: 'Flood', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$FloodCurrentColor = {ctor: 'FloodCurrentColor'};
+var _elm_community$typed_svg$TypedSvg_Types$FloodInherit = {ctor: 'FloodInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$FontSizeAdjust = function (a) {
+	return {ctor: 'FontSizeAdjust', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$FontSizeAdjustInherit = {ctor: 'FontSizeAdjustInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$FontSizeAdjustNone = {ctor: 'FontSizeAdjustNone'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStretchInherit = {ctor: 'FontStretchInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStretchUltraExpanded = {ctor: 'FontStretchUltraExpanded'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStretchExtraExpanded = {ctor: 'FontStretchExtraExpanded'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStretchExpanded = {ctor: 'FontStretchExpanded'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStretchSemiExpanded = {ctor: 'FontStretchSemiExpanded'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStretchSemiCondensed = {ctor: 'FontStretchSemiCondensed'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStretchCondensed = {ctor: 'FontStretchCondensed'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStretchExtraCondensed = {ctor: 'FontStretchExtraCondensed'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStretchUltraCondensed = {ctor: 'FontStretchUltraCondensed'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStretchNarrower = {ctor: 'FontStretchNarrower'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStretchWider = {ctor: 'FontStretchWider'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStretchNormal = {ctor: 'FontStretchNormal'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStyleInherit = {ctor: 'FontStyleInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStyleOblique = {ctor: 'FontStyleOblique'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStyleItalic = {ctor: 'FontStyleItalic'};
+var _elm_community$typed_svg$TypedSvg_Types$FontStyleNormal = {ctor: 'FontStyleNormal'};
+var _elm_community$typed_svg$TypedSvg_Types$FontVariantInherit = {ctor: 'FontVariantInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$FontVariantSmallCaps = {ctor: 'FontVariantSmallCaps'};
+var _elm_community$typed_svg$TypedSvg_Types$FontVariantNormal = {ctor: 'FontVariantNormal'};
+var _elm_community$typed_svg$TypedSvg_Types$FontWeight = function (a) {
+	return {ctor: 'FontWeight', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$FontWeightInherit = {ctor: 'FontWeightInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$FontWeightLighter = {ctor: 'FontWeightLighter'};
+var _elm_community$typed_svg$TypedSvg_Types$FontWeightBolder = {ctor: 'FontWeightBolder'};
+var _elm_community$typed_svg$TypedSvg_Types$FontWeightBold = {ctor: 'FontWeightBold'};
+var _elm_community$typed_svg$TypedSvg_Types$FontWeightNormal = {ctor: 'FontWeightNormal'};
+var _elm_community$typed_svg$TypedSvg_Types$FuncTypeGamma = {ctor: 'FuncTypeGamma'};
+var _elm_community$typed_svg$TypedSvg_Types$FuncTypeLinear = {ctor: 'FuncTypeLinear'};
+var _elm_community$typed_svg$TypedSvg_Types$FuncTypeDiscrete = {ctor: 'FuncTypeDiscrete'};
+var _elm_community$typed_svg$TypedSvg_Types$FuncTypeTable = {ctor: 'FuncTypeTable'};
+var _elm_community$typed_svg$TypedSvg_Types$FuncTypeIdentity = {ctor: 'FuncTypeIdentity'};
+var _elm_community$typed_svg$TypedSvg_Types$InReference = function (a) {
+	return {ctor: 'InReference', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$InStrokePaint = {ctor: 'InStrokePaint'};
+var _elm_community$typed_svg$TypedSvg_Types$InFillPaint = {ctor: 'InFillPaint'};
+var _elm_community$typed_svg$TypedSvg_Types$InBackgroundAlpha = {ctor: 'InBackgroundAlpha'};
+var _elm_community$typed_svg$TypedSvg_Types$InSourceAlpha = {ctor: 'InSourceAlpha'};
+var _elm_community$typed_svg$TypedSvg_Types$InSourceGraphic = {ctor: 'InSourceGraphic'};
+var _elm_community$typed_svg$TypedSvg_Types$KerningLength = function (a) {
+	return {ctor: 'KerningLength', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$KerningInherit = {ctor: 'KerningInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$KerningAuto = {ctor: 'KerningAuto'};
+var _elm_community$typed_svg$TypedSvg_Types$Px = function (a) {
+	return {ctor: 'Px', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$px = _elm_community$typed_svg$TypedSvg_Types$Px;
+var _elm_community$typed_svg$TypedSvg_Types$Pt = function (a) {
+	return {ctor: 'Pt', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$pt = _elm_community$typed_svg$TypedSvg_Types$Pt;
+var _elm_community$typed_svg$TypedSvg_Types$Percent = function (a) {
+	return {ctor: 'Percent', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$percent = _elm_community$typed_svg$TypedSvg_Types$Percent;
+var _elm_community$typed_svg$TypedSvg_Types$Pc = function (a) {
+	return {ctor: 'Pc', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$pc = _elm_community$typed_svg$TypedSvg_Types$Pc;
+var _elm_community$typed_svg$TypedSvg_Types$Num = function (a) {
+	return {ctor: 'Num', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$num = _elm_community$typed_svg$TypedSvg_Types$Num;
+var _elm_community$typed_svg$TypedSvg_Types$Mm = function (a) {
+	return {ctor: 'Mm', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$mm = _elm_community$typed_svg$TypedSvg_Types$Mm;
+var _elm_community$typed_svg$TypedSvg_Types$In = function (a) {
+	return {ctor: 'In', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$inch = _elm_community$typed_svg$TypedSvg_Types$In;
+var _elm_community$typed_svg$TypedSvg_Types$Ex = function (a) {
+	return {ctor: 'Ex', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$ex = _elm_community$typed_svg$TypedSvg_Types$Ex;
+var _elm_community$typed_svg$TypedSvg_Types$Em = function (a) {
+	return {ctor: 'Em', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$em = _elm_community$typed_svg$TypedSvg_Types$Em;
+var _elm_community$typed_svg$TypedSvg_Types$Cm = function (a) {
+	return {ctor: 'Cm', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$cm = _elm_community$typed_svg$TypedSvg_Types$Cm;
+var _elm_community$typed_svg$TypedSvg_Types$LengthAdjustSpacingAndGlyphs = {ctor: 'LengthAdjustSpacingAndGlyphs'};
+var _elm_community$typed_svg$TypedSvg_Types$LengthAdjustSpacing = {ctor: 'LengthAdjustSpacing'};
+var _elm_community$typed_svg$TypedSvg_Types$MarkerCoordinateSystemStrokeWidth = {ctor: 'MarkerCoordinateSystemStrokeWidth'};
+var _elm_community$typed_svg$TypedSvg_Types$MarkerCoordinateSystemUserSpaceOnUse = {ctor: 'MarkerCoordinateSystemUserSpaceOnUse'};
+var _elm_community$typed_svg$TypedSvg_Types$Slice = {ctor: 'Slice'};
+var _elm_community$typed_svg$TypedSvg_Types$Meet = {ctor: 'Meet'};
+var _elm_community$typed_svg$TypedSvg_Types$ModeLighten = {ctor: 'ModeLighten'};
+var _elm_community$typed_svg$TypedSvg_Types$ModeDarken = {ctor: 'ModeDarken'};
+var _elm_community$typed_svg$TypedSvg_Types$ModeScreen = {ctor: 'ModeScreen'};
+var _elm_community$typed_svg$TypedSvg_Types$ModeMultiply = {ctor: 'ModeMultiply'};
+var _elm_community$typed_svg$TypedSvg_Types$ModeNormal = {ctor: 'ModeNormal'};
+var _elm_community$typed_svg$TypedSvg_Types$MorphologyOperatorDilate = {ctor: 'MorphologyOperatorDilate'};
+var _elm_community$typed_svg$TypedSvg_Types$MorphologyOperatorErode = {ctor: 'MorphologyOperatorErode'};
+var _elm_community$typed_svg$TypedSvg_Types$OpacityInherit = {ctor: 'OpacityInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$Opacity = function (a) {
+	return {ctor: 'Opacity', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$RenderingInherit = {ctor: 'RenderingInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$RenderingOptimizeQuality = {ctor: 'RenderingOptimizeQuality'};
+var _elm_community$typed_svg$TypedSvg_Types$RenderingOptimizeSpeed = {ctor: 'RenderingOptimizeSpeed'};
+var _elm_community$typed_svg$TypedSvg_Types$RenderingAuto = {ctor: 'RenderingAuto'};
+var _elm_community$typed_svg$TypedSvg_Types$RepeatIndefinite = {ctor: 'RepeatIndefinite'};
+var _elm_community$typed_svg$TypedSvg_Types$RepeatCount = function (a) {
+	return {ctor: 'RepeatCount', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$RestartNever = {ctor: 'RestartNever'};
+var _elm_community$typed_svg$TypedSvg_Types$RestartWhenNotActive = {ctor: 'RestartWhenNotActive'};
+var _elm_community$typed_svg$TypedSvg_Types$RestartAlways = {ctor: 'RestartAlways'};
+var _elm_community$typed_svg$TypedSvg_Types$ScaleMax = {ctor: 'ScaleMax'};
+var _elm_community$typed_svg$TypedSvg_Types$ScaleMid = {ctor: 'ScaleMid'};
+var _elm_community$typed_svg$TypedSvg_Types$ScaleMin = {ctor: 'ScaleMin'};
+var _elm_community$typed_svg$TypedSvg_Types$RenderInherit = {ctor: 'RenderInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$RenderGeometricPrecision = {ctor: 'RenderGeometricPrecision'};
+var _elm_community$typed_svg$TypedSvg_Types$RenderCrispEdges = {ctor: 'RenderCrispEdges'};
+var _elm_community$typed_svg$TypedSvg_Types$RenderOptimizeSpeed = {ctor: 'RenderOptimizeSpeed'};
+var _elm_community$typed_svg$TypedSvg_Types$RenderAuto = {ctor: 'RenderAuto'};
+var _elm_community$typed_svg$TypedSvg_Types$StrokeLinecapInherit = {ctor: 'StrokeLinecapInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$StrokeLinecapSquare = {ctor: 'StrokeLinecapSquare'};
+var _elm_community$typed_svg$TypedSvg_Types$StrokeLinecapRound = {ctor: 'StrokeLinecapRound'};
+var _elm_community$typed_svg$TypedSvg_Types$StrokeLinecapButt = {ctor: 'StrokeLinecapButt'};
+var _elm_community$typed_svg$TypedSvg_Types$StrokeLinejoinInherit = {ctor: 'StrokeLinejoinInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$StrokeLinejoinBevel = {ctor: 'StrokeLinejoinBevel'};
+var _elm_community$typed_svg$TypedSvg_Types$StrokeLinejoinRound = {ctor: 'StrokeLinejoinRound'};
+var _elm_community$typed_svg$TypedSvg_Types$StrokeLinejoinMiter = {ctor: 'StrokeLinejoinMiter'};
+var _elm_community$typed_svg$TypedSvg_Types$Translate = F2(
+	function (a, b) {
+		return {ctor: 'Translate', _0: a, _1: b};
+	});
+var _elm_community$typed_svg$TypedSvg_Types$SkewY = function (a) {
+	return {ctor: 'SkewY', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$SkewX = function (a) {
+	return {ctor: 'SkewX', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$Scale = F2(
+	function (a, b) {
+		return {ctor: 'Scale', _0: a, _1: b};
+	});
+var _elm_community$typed_svg$TypedSvg_Types$Rotate = F3(
+	function (a, b, c) {
+		return {ctor: 'Rotate', _0: a, _1: b, _2: c};
+	});
+var _elm_community$typed_svg$TypedSvg_Types$Matrix = F6(
+	function (a, b, c, d, e, f) {
+		return {ctor: 'Matrix', _0: a, _1: b, _2: c, _3: d, _4: e, _5: f};
+	});
+var _elm_community$typed_svg$TypedSvg_Types$TextRenderingInherit = {ctor: 'TextRenderingInherit'};
+var _elm_community$typed_svg$TypedSvg_Types$TextRenderingGeometricPrecision = {ctor: 'TextRenderingGeometricPrecision'};
+var _elm_community$typed_svg$TypedSvg_Types$TextRenderingOptimizeLegibility = {ctor: 'TextRenderingOptimizeLegibility'};
+var _elm_community$typed_svg$TypedSvg_Types$TextRenderingOptimizeSpeed = {ctor: 'TextRenderingOptimizeSpeed'};
+var _elm_community$typed_svg$TypedSvg_Types$TextRenderingAuto = {ctor: 'TextRenderingAuto'};
+var _elm_community$typed_svg$TypedSvg_Types$TimingIndefinite = {ctor: 'TimingIndefinite'};
+var _elm_community$typed_svg$TypedSvg_Types$TimingWallclockSyncValue = function (a) {
+	return {ctor: 'TimingWallclockSyncValue', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$TimingAccessKeyValue = function (a) {
+	return {ctor: 'TimingAccessKeyValue', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$TimingRepeatValue = function (a) {
+	return {ctor: 'TimingRepeatValue', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$TimingEventValue = function (a) {
+	return {ctor: 'TimingEventValue', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$TimingSyncBaseValue = function (a) {
+	return {ctor: 'TimingSyncBaseValue', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$TimingOffsetValue = function (a) {
+	return {ctor: 'TimingOffsetValue', _0: a};
+};
+var _elm_community$typed_svg$TypedSvg_Types$TurbulenceTypeTurbulence = {ctor: 'TurbulenceTypeTurbulence'};
+var _elm_community$typed_svg$TypedSvg_Types$TurbulenceTypeFractalNoise = {ctor: 'TurbulenceTypeFractalNoise'};
+var _elm_community$typed_svg$TypedSvg_Types$No = {ctor: 'No'};
+var _elm_community$typed_svg$TypedSvg_Types$Yes = {ctor: 'Yes'};

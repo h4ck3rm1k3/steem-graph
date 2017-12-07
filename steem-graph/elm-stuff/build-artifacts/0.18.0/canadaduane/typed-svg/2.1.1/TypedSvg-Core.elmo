@@ -1,0 +1,16 @@
+var _canadaduane$typed_svg$TypedSvg_Core$map = _elm_lang$virtual_dom$VirtualDom$map;
+var _canadaduane$typed_svg$TypedSvg_Core$text = _elm_lang$virtual_dom$VirtualDom$text;
+var _canadaduane$typed_svg$TypedSvg_Core$attributeNS = _elm_lang$virtual_dom$VirtualDom$attributeNS;
+var _canadaduane$typed_svg$TypedSvg_Core$attribute = _elm_lang$virtual_dom$VirtualDom$attribute;
+var _canadaduane$typed_svg$TypedSvg_Core$svgNamespace = A2(
+	_elm_lang$virtual_dom$VirtualDom$property,
+	'namespace',
+	_elm_lang$core$Json_Encode$string('http://www.w3.org/2000/svg'));
+var _canadaduane$typed_svg$TypedSvg_Core$node = F3(
+	function (name, attributes, children) {
+		return A3(
+			_elm_lang$virtual_dom$VirtualDom$node,
+			name,
+			{ctor: '::', _0: _canadaduane$typed_svg$TypedSvg_Core$svgNamespace, _1: attributes},
+			children);
+	});

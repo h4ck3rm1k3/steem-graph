@@ -1,0 +1,86 @@
+var _drathier$elm_graph$Graph_Random$topologicalSortShrinker = _elm_community$shrink$Shrink$list(_elm_community$shrink$Shrink$noShrink);
+var _drathier$elm_graph$Graph_Random$randomReversePostOrderHelper = F4(
+	function (nodeKeys, keyOrder, seenKeys, graph) {
+		randomReversePostOrderHelper:
+		while (true) {
+			var _p0 = nodeKeys;
+			if (_p0.ctor === '[]') {
+				return _mgold$elm_random_pcg$Random_Pcg$constant(
+					{ctor: '_Tuple2', _0: seenKeys, _1: keyOrder});
+			} else {
+				var _p4 = _p0._1;
+				var _p3 = _p0._0;
+				if (A2(_elm_lang$core$Set$member, _p3, seenKeys)) {
+					var _v1 = _p4,
+						_v2 = keyOrder,
+						_v3 = seenKeys,
+						_v4 = graph;
+					nodeKeys = _v1;
+					keyOrder = _v2;
+					seenKeys = _v3;
+					graph = _v4;
+					continue randomReversePostOrderHelper;
+				} else {
+					var lastStep = function (_p1) {
+						var _p2 = _p1;
+						return A4(
+							_drathier$elm_graph$Graph_Random$randomReversePostOrderHelper,
+							_p4,
+							{ctor: '::', _0: _p3, _1: _p2._1},
+							_p2._0,
+							graph);
+					};
+					var midstep = function (shuffledOut) {
+						return A4(
+							_drathier$elm_graph$Graph_Random$randomReversePostOrderHelper,
+							shuffledOut,
+							keyOrder,
+							A2(_elm_lang$core$Set$insert, _p3, seenKeys),
+							graph);
+					};
+					return A2(
+						_mgold$elm_random_pcg$Random_Pcg$andThen,
+						lastStep,
+						A2(
+							_mgold$elm_random_pcg$Random_Pcg$andThen,
+							midstep,
+							_drathier$elm_graph$Random_List$shuffle(
+								_elm_lang$core$Set$toList(
+									A2(_drathier$elm_graph$Graph$outgoing, _p3, graph)))));
+				}
+			}
+		}
+	});
+var _drathier$elm_graph$Graph_Random$randomTopologicalSort = function (graph) {
+	return _drathier$elm_graph$Graph$isAcyclic(graph) ? A2(
+		_mgold$elm_random_pcg$Random_Pcg$map,
+		_elm_lang$core$Tuple$second,
+		A2(
+			_mgold$elm_random_pcg$Random_Pcg$andThen,
+			function (nodeKeys) {
+				return A4(
+					_drathier$elm_graph$Graph_Random$randomReversePostOrderHelper,
+					nodeKeys,
+					{ctor: '[]'},
+					_elm_lang$core$Set$empty,
+					graph);
+			},
+			_drathier$elm_graph$Random_List$shuffle(
+				_drathier$elm_graph$Graph$keys(graph)))) : _elm_lang$core$Native_Utils.crash(
+		'Graph.Random',
+		{
+			start: {line: 46, column: 5},
+			end: {line: 46, column: 16}
+		})('Graph.Random topologicalSortFuzzer got cyclic graph as argument');
+};
+var _drathier$elm_graph$Graph_Random$topologicalSortFuzzer = function (graph) {
+	return _drathier$elm_graph$Graph$isAcyclic(graph) ? A2(
+		_elm_community$elm_test$Fuzz$custom,
+		_drathier$elm_graph$Graph_Random$randomTopologicalSort(graph),
+		_drathier$elm_graph$Graph_Random$topologicalSortShrinker) : _elm_lang$core$Native_Utils.crash(
+		'Graph.Random',
+		{
+			start: {line: 34, column: 5},
+			end: {line: 34, column: 16}
+		})('Graph.Random topologicalSortFuzzer got cyclic graph as argument');
+};

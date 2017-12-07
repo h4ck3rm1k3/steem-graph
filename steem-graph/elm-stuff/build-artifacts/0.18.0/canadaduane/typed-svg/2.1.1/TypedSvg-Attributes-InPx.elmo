@@ -1,0 +1,88 @@
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$y2 = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$y2(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$y1 = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$y1(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$y = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$y(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$x2 = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$x2(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$x1 = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$x1(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$x = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$x(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$width = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$width(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$strokeWidth = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$strokeWidth(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$textLength = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$textLength(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$ry = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$ry(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$rx = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$rx(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$r = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$r(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$markerWidth = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$markerWidth(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$markerHeight = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$markerHeight(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$height = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$height(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$fy = function (yAxisCoord) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$fx(
+		_canadaduane$typed_svg$TypedSvg_Types$px(yAxisCoord));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$fx = function (xAxisCoord) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$fx(
+		_canadaduane$typed_svg$TypedSvg_Types$px(xAxisCoord));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$fontSize = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$fontSize(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$dy = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$dy(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$dx = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$dx(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$cy = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$cy(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes_InPx$cx = function (value) {
+	return _canadaduane$typed_svg$TypedSvg_Attributes$cx(
+		_canadaduane$typed_svg$TypedSvg_Types$px(value));
+};

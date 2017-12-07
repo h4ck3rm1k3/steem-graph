@@ -1,0 +1,5 @@
+var _user$project$Messages$GoToMainPage = {ctor: 'GoToMainPage'};
+var _user$project$Messages$GoToAboutPage = {ctor: 'GoToAboutPage'};
+var _user$project$Messages$OnLocationChange = function (a) {
+	return {ctor: 'OnLocationChange', _0: a};
+};

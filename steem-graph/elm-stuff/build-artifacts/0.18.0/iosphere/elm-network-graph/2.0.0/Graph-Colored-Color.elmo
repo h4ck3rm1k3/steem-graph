@@ -1,0 +1,50 @@
+var _iosphere$elm_network_graph$Graph_Colored_Color$list = {
+	ctor: '::',
+	_0: '#F44336',
+	_1: {
+		ctor: '::',
+		_0: '#E91E63',
+		_1: {
+			ctor: '::',
+			_0: '#9C27B0',
+			_1: {
+				ctor: '::',
+				_0: '#673AB7',
+				_1: {
+					ctor: '::',
+					_0: '#3F51B5',
+					_1: {
+						ctor: '::',
+						_0: '#2196F3',
+						_1: {
+							ctor: '::',
+							_0: '#03A9F4',
+							_1: {
+								ctor: '::',
+								_0: '#00BCD4',
+								_1: {
+									ctor: '::',
+									_0: '#009688',
+									_1: {
+										ctor: '::',
+										_0: '#4CAF50',
+										_1: {
+											ctor: '::',
+											_0: '#8BC34A',
+											_1: {
+												ctor: '::',
+												_0: '#FF9800',
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+};
+var _iosphere$elm_network_graph$Graph_Colored_Color$fallback = '#f00';

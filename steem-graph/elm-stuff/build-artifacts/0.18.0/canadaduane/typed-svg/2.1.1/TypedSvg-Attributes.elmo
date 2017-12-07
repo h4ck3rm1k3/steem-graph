@@ -1,0 +1,781 @@
+var _canadaduane$typed_svg$TypedSvg_Attributes$zoomAndPan = _canadaduane$typed_svg$TypedSvg_Core$attribute('zoomAndPan');
+var _canadaduane$typed_svg$TypedSvg_Attributes$yChannelSelector = _canadaduane$typed_svg$TypedSvg_Core$attribute('yChannelSelector');
+var _canadaduane$typed_svg$TypedSvg_Attributes$y2 = function (position) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'y2',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(position));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$y1 = function (position) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'y1',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(position));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$y = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'y',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$xmlSpace = A2(_canadaduane$typed_svg$TypedSvg_Core$attributeNS, 'http://www.w3.org/XML/1998/namespace', 'xml:space');
+var _canadaduane$typed_svg$TypedSvg_Attributes$xmlLang = A2(_canadaduane$typed_svg$TypedSvg_Core$attributeNS, 'http://www.w3.org/XML/1998/namespace', 'xml:lang');
+var _canadaduane$typed_svg$TypedSvg_Attributes$xmlBase = A2(_canadaduane$typed_svg$TypedSvg_Core$attributeNS, 'http://www.w3.org/XML/1998/namespace', 'xml:base');
+var _canadaduane$typed_svg$TypedSvg_Attributes$xlinkType = A2(_canadaduane$typed_svg$TypedSvg_Core$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:type');
+var _canadaduane$typed_svg$TypedSvg_Attributes$xlinkTitle = function (str) {
+	return A2(_canadaduane$typed_svg$TypedSvg_Core$attribute, 'xlinkTitle', str);
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$xlinkShow = function (str) {
+	return A2(_canadaduane$typed_svg$TypedSvg_Core$attribute, 'xlinkShow', str);
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$xlinkRole = A2(_canadaduane$typed_svg$TypedSvg_Core$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:role');
+var _canadaduane$typed_svg$TypedSvg_Attributes$xlinkHref = A2(_canadaduane$typed_svg$TypedSvg_Core$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:href');
+var _canadaduane$typed_svg$TypedSvg_Attributes$xlinkArcrole = A2(_canadaduane$typed_svg$TypedSvg_Core$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:arcrole');
+var _canadaduane$typed_svg$TypedSvg_Attributes$xlinkActuate = A2(_canadaduane$typed_svg$TypedSvg_Core$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:actuate');
+var _canadaduane$typed_svg$TypedSvg_Attributes$xChannelSelector = _canadaduane$typed_svg$TypedSvg_Core$attribute('xChannelSelector');
+var _canadaduane$typed_svg$TypedSvg_Attributes$x2 = function (position) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'x2',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(position));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$x1 = function (position) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'x1',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(position));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$xHeight = _canadaduane$typed_svg$TypedSvg_Core$attribute('x-height');
+var _canadaduane$typed_svg$TypedSvg_Attributes$x = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'x',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$writingMode = _canadaduane$typed_svg$TypedSvg_Core$attribute('writing-mode');
+var _canadaduane$typed_svg$TypedSvg_Attributes$wordSpacing = _canadaduane$typed_svg$TypedSvg_Core$attribute('word-spacing');
+var _canadaduane$typed_svg$TypedSvg_Attributes$widths = _canadaduane$typed_svg$TypedSvg_Core$attribute('widths');
+var _canadaduane$typed_svg$TypedSvg_Attributes$width = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'width',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$visibility = _canadaduane$typed_svg$TypedSvg_Core$attribute('visibility');
+var _canadaduane$typed_svg$TypedSvg_Attributes$viewTarget = _canadaduane$typed_svg$TypedSvg_Core$attribute('viewTarget');
+var _canadaduane$typed_svg$TypedSvg_Attributes$viewBox = F4(
+	function (minX, minY, width, height) {
+		return A2(
+			_canadaduane$typed_svg$TypedSvg_Core$attribute,
+			'viewBox',
+			A2(
+				_elm_lang$core$String$join,
+				' ',
+				A2(
+					_elm_lang$core$List$map,
+					_elm_lang$core$Basics$toString,
+					{
+						ctor: '::',
+						_0: minX,
+						_1: {
+							ctor: '::',
+							_0: minY,
+							_1: {
+								ctor: '::',
+								_0: width,
+								_1: {
+									ctor: '::',
+									_0: height,
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					})));
+	});
+var _canadaduane$typed_svg$TypedSvg_Attributes$vertOriginY = _canadaduane$typed_svg$TypedSvg_Core$attribute('vert-origin-y');
+var _canadaduane$typed_svg$TypedSvg_Attributes$vertOriginX = _canadaduane$typed_svg$TypedSvg_Core$attribute('vert-origin-x');
+var _canadaduane$typed_svg$TypedSvg_Attributes$vertAdvY = _canadaduane$typed_svg$TypedSvg_Core$attribute('vert-adv-y');
+var _canadaduane$typed_svg$TypedSvg_Attributes$version = function (number) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'version',
+		_elm_lang$core$Basics$toString(number));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$vMathematical = _canadaduane$typed_svg$TypedSvg_Core$attribute('v-mathematical');
+var _canadaduane$typed_svg$TypedSvg_Attributes$vIdeographic = _canadaduane$typed_svg$TypedSvg_Core$attribute('v-ideographic');
+var _canadaduane$typed_svg$TypedSvg_Attributes$vHanging = _canadaduane$typed_svg$TypedSvg_Core$attribute('v-hanging');
+var _canadaduane$typed_svg$TypedSvg_Attributes$vAlphabetic = _canadaduane$typed_svg$TypedSvg_Core$attribute('v-alphabetic');
+var _canadaduane$typed_svg$TypedSvg_Attributes$unitsPerEm = _canadaduane$typed_svg$TypedSvg_Core$attribute('units-per-em');
+var _canadaduane$typed_svg$TypedSvg_Attributes$unicodeRange = _canadaduane$typed_svg$TypedSvg_Core$attribute('unicode-range');
+var _canadaduane$typed_svg$TypedSvg_Attributes$unicodeBidi = _canadaduane$typed_svg$TypedSvg_Core$attribute('unicode-bidi');
+var _canadaduane$typed_svg$TypedSvg_Attributes$unicode = _canadaduane$typed_svg$TypedSvg_Core$attribute('unicode');
+var _canadaduane$typed_svg$TypedSvg_Attributes$underlineThickness = function (thickness) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'underline-thickness',
+		_elm_lang$core$Basics$toString(thickness));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$underlinePosition = function (position) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'underline-position',
+		_elm_lang$core$Basics$toString(position));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$u2 = _canadaduane$typed_svg$TypedSvg_Core$attribute('u2');
+var _canadaduane$typed_svg$TypedSvg_Attributes$u1 = _canadaduane$typed_svg$TypedSvg_Core$attribute('u1');
+var _canadaduane$typed_svg$TypedSvg_Attributes$transform = function (transforms) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'transform',
+		A2(
+			_elm_lang$core$String$join,
+			' ',
+			A2(_elm_lang$core$List$map, _canadaduane$typed_svg$TypedSvg_TypesToStrings$transformToString, transforms)));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$to = function (value) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'to',
+		_elm_lang$core$Basics$toString(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$title = _canadaduane$typed_svg$TypedSvg_Core$attribute('title');
+var _canadaduane$typed_svg$TypedSvg_Attributes$textRendering = _canadaduane$typed_svg$TypedSvg_Core$attribute('text-rendering');
+var _canadaduane$typed_svg$TypedSvg_Attributes$textLength = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'textLength',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$textDecoration = _canadaduane$typed_svg$TypedSvg_Core$attribute('text-decoration');
+var _canadaduane$typed_svg$TypedSvg_Attributes$textAnchor = function (anchorAlignment) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'textAnchor',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$anchorAlignmentToString(anchorAlignment));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$target = _canadaduane$typed_svg$TypedSvg_Core$attribute('target');
+var _canadaduane$typed_svg$TypedSvg_Attributes$tableValues = _canadaduane$typed_svg$TypedSvg_Core$attribute('tableValues');
+var _canadaduane$typed_svg$TypedSvg_Attributes$systemLanguage = _canadaduane$typed_svg$TypedSvg_Core$attribute('systemLanguage');
+var _canadaduane$typed_svg$TypedSvg_Attributes$style = function (value) {
+	return A2(_canadaduane$typed_svg$TypedSvg_Core$attribute, 'style', value);
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$strokeWidth = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'stroke-width',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$strokeOpacity = _canadaduane$typed_svg$TypedSvg_Core$attribute('stroke-opacity');
+var _canadaduane$typed_svg$TypedSvg_Attributes$strokeMiterlimit = _canadaduane$typed_svg$TypedSvg_Core$attribute('stroke-miterlimit');
+var _canadaduane$typed_svg$TypedSvg_Attributes$strokeLinejoin = _canadaduane$typed_svg$TypedSvg_Core$attribute('stroke-linejoin');
+var _canadaduane$typed_svg$TypedSvg_Attributes$strokeLinecap = _canadaduane$typed_svg$TypedSvg_Core$attribute('stroke-linecap');
+var _canadaduane$typed_svg$TypedSvg_Attributes$strokeDashoffset = _canadaduane$typed_svg$TypedSvg_Core$attribute('stroke-dashoffset');
+var _canadaduane$typed_svg$TypedSvg_Attributes$strokeDasharray = _canadaduane$typed_svg$TypedSvg_Core$attribute('stroke-dasharray');
+var _canadaduane$typed_svg$TypedSvg_Attributes$stroke = function (color) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'stroke',
+		_eskimoblood$elm_color_extra$Color_Convert$colorToCssRgba(color));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$string = _canadaduane$typed_svg$TypedSvg_Core$attribute('string');
+var _canadaduane$typed_svg$TypedSvg_Attributes$strikethroughThickness = _canadaduane$typed_svg$TypedSvg_Core$attribute('strikethrough-thickness');
+var _canadaduane$typed_svg$TypedSvg_Attributes$strikethroughPosition = _canadaduane$typed_svg$TypedSvg_Core$attribute('strikethrough-position');
+var _canadaduane$typed_svg$TypedSvg_Attributes$stopOpacity = _canadaduane$typed_svg$TypedSvg_Core$attribute('stop-opacity');
+var _canadaduane$typed_svg$TypedSvg_Attributes$stopColor = _canadaduane$typed_svg$TypedSvg_Core$attribute('stop-color');
+var _canadaduane$typed_svg$TypedSvg_Attributes$stitchTiles = _canadaduane$typed_svg$TypedSvg_Core$attribute('stitchTiles');
+var _canadaduane$typed_svg$TypedSvg_Attributes$stemv = _canadaduane$typed_svg$TypedSvg_Core$attribute('stemv');
+var _canadaduane$typed_svg$TypedSvg_Attributes$stemh = _canadaduane$typed_svg$TypedSvg_Core$attribute('stemh');
+var _canadaduane$typed_svg$TypedSvg_Attributes$stdDeviation = _canadaduane$typed_svg$TypedSvg_Core$attribute('stdDeviation');
+var _canadaduane$typed_svg$TypedSvg_Attributes$startOffset = _canadaduane$typed_svg$TypedSvg_Core$attribute('startOffset');
+var _canadaduane$typed_svg$TypedSvg_Attributes$spreadMethod = _canadaduane$typed_svg$TypedSvg_Core$attribute('spreadMethod');
+var _canadaduane$typed_svg$TypedSvg_Attributes$speed = _canadaduane$typed_svg$TypedSvg_Core$attribute('speed');
+var _canadaduane$typed_svg$TypedSvg_Attributes$specularExponent = _canadaduane$typed_svg$TypedSvg_Core$attribute('specularExponent');
+var _canadaduane$typed_svg$TypedSvg_Attributes$specularConstant = _canadaduane$typed_svg$TypedSvg_Core$attribute('specularConstant');
+var _canadaduane$typed_svg$TypedSvg_Attributes$spacing = _canadaduane$typed_svg$TypedSvg_Core$attribute('spacing');
+var _canadaduane$typed_svg$TypedSvg_Attributes$slope = _canadaduane$typed_svg$TypedSvg_Core$attribute('slope');
+var _canadaduane$typed_svg$TypedSvg_Attributes$shapeRendering = function (shapeRendering) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'shapeRendering',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$shapeRenderingToString(shapeRendering));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$ry = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'ry',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$rx = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'rx',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$rotate = _canadaduane$typed_svg$TypedSvg_Core$attribute('rotate');
+var _canadaduane$typed_svg$TypedSvg_Attributes$restart = function (restart) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'restart',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$restartToString(restart));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$requiredFeatures = function (features) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'requiredFeatures',
+		A2(_elm_lang$core$String$join, ' ', features));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$requiredExtensions = _canadaduane$typed_svg$TypedSvg_Core$attribute('requiredExtensions');
+var _canadaduane$typed_svg$TypedSvg_Attributes$repeatDur = function (duration) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'repeatDur',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$durationToString(duration));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$repeatCount = function (repeatCount) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'repeatCount',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$repeatCountToString(repeatCount));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$renderingIntent = _canadaduane$typed_svg$TypedSvg_Core$attribute('rendering-intent');
+var _canadaduane$typed_svg$TypedSvg_Attributes$refY = _canadaduane$typed_svg$TypedSvg_Core$attribute('refY');
+var _canadaduane$typed_svg$TypedSvg_Attributes$refX = _canadaduane$typed_svg$TypedSvg_Core$attribute('refX');
+var _canadaduane$typed_svg$TypedSvg_Attributes$r = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'r',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$primitiveUnits = function (coordinateSystem) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'primitiveUnits',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$coordinateSystemToString(coordinateSystem));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$preserveAspectRatio = F2(
+	function (align, meetOrSlice) {
+		return A2(
+			_canadaduane$typed_svg$TypedSvg_Core$attribute,
+			'preserveAspectRatio',
+			A2(
+				_elm_lang$core$String$join,
+				' ',
+				{
+					ctor: '::',
+					_0: _canadaduane$typed_svg$TypedSvg_TypesToStrings$alignToString(align),
+					_1: {
+						ctor: '::',
+						_0: _canadaduane$typed_svg$TypedSvg_TypesToStrings$meetOrSliceToString(meetOrSlice),
+						_1: {ctor: '[]'}
+					}
+				}));
+	});
+var _canadaduane$typed_svg$TypedSvg_Attributes$points = function (pts) {
+	var pointToString = function (_p0) {
+		var _p1 = _p0;
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(_p1._0),
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				', ',
+				_elm_lang$core$Basics$toString(_p1._1)));
+	};
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'points',
+		A2(
+			_elm_lang$core$String$join,
+			' ',
+			A2(_elm_lang$core$List$map, pointToString, pts)));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$pointOrder = _canadaduane$typed_svg$TypedSvg_Core$attribute('point-order');
+var _canadaduane$typed_svg$TypedSvg_Attributes$pointerEvents = _canadaduane$typed_svg$TypedSvg_Core$attribute('pointer-events');
+var _canadaduane$typed_svg$TypedSvg_Attributes$patternUnits = function (coordinateSystem) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'patternUnits',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$coordinateSystemToString(coordinateSystem));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$patternTransform = function (transforms) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'patternTransform',
+		A2(
+			_elm_lang$core$String$join,
+			' ',
+			A2(_elm_lang$core$List$map, _canadaduane$typed_svg$TypedSvg_TypesToStrings$transformToString, transforms)));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$patternContentUnits = function (coordinateSystem) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'patternContentUnits',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$coordinateSystemToString(coordinateSystem));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$pathLength = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'pathLength',
+		_elm_lang$core$Basics$toString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$path = _canadaduane$typed_svg$TypedSvg_Core$attribute('path');
+var _canadaduane$typed_svg$TypedSvg_Attributes$panose1 = _canadaduane$typed_svg$TypedSvg_Core$attribute('panose-1');
+var _canadaduane$typed_svg$TypedSvg_Attributes$overlineThickness = function (thickness) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'overlineThickness',
+		_elm_lang$core$Basics$toString(thickness));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$overlinePosition = function (position) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'overlinePosition',
+		_elm_lang$core$Basics$toString(position));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$overflow = _canadaduane$typed_svg$TypedSvg_Core$attribute('overflow');
+var _canadaduane$typed_svg$TypedSvg_Attributes$origin = _canadaduane$typed_svg$TypedSvg_Core$attribute('origin');
+var _canadaduane$typed_svg$TypedSvg_Attributes$orientation = _canadaduane$typed_svg$TypedSvg_Core$attribute('orientation');
+var _canadaduane$typed_svg$TypedSvg_Attributes$orient = _canadaduane$typed_svg$TypedSvg_Core$attribute('orient');
+var _canadaduane$typed_svg$TypedSvg_Attributes$opacity = _canadaduane$typed_svg$TypedSvg_Core$attribute('opacity');
+var _canadaduane$typed_svg$TypedSvg_Attributes$offset = _canadaduane$typed_svg$TypedSvg_Core$attribute('offset');
+var _canadaduane$typed_svg$TypedSvg_Attributes$name = _canadaduane$typed_svg$TypedSvg_Core$attribute('name');
+var _canadaduane$typed_svg$TypedSvg_Attributes$min = function (clockValue) {
+	return A2(_canadaduane$typed_svg$TypedSvg_Core$attribute, 'min', clockValue);
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$method = _canadaduane$typed_svg$TypedSvg_Core$attribute('method');
+var _canadaduane$typed_svg$TypedSvg_Attributes$media = _canadaduane$typed_svg$TypedSvg_Core$attribute('media');
+var _canadaduane$typed_svg$TypedSvg_Attributes$max = function (clockValue) {
+	return A2(_canadaduane$typed_svg$TypedSvg_Core$attribute, 'max', clockValue);
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$maskUnits = function (coordinateSystem) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'maskUnits',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$coordinateSystemToString(coordinateSystem));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$maskContentUnits = function (coordinateSystem) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'maskContentUnits',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$coordinateSystemToString(coordinateSystem));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$mask = _canadaduane$typed_svg$TypedSvg_Core$attribute('mask');
+var _canadaduane$typed_svg$TypedSvg_Attributes$markerWidth = function (width) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'markerWidth',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(width));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$markerUnits = function (markerCoordinateSystem) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'markerUnits',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$markerCoordinateSystemToString(markerCoordinateSystem));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$markerStart = _canadaduane$typed_svg$TypedSvg_Core$attribute('marker-start');
+var _canadaduane$typed_svg$TypedSvg_Attributes$markerMid = _canadaduane$typed_svg$TypedSvg_Core$attribute('marker-mid');
+var _canadaduane$typed_svg$TypedSvg_Attributes$markerHeight = function (height) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'markerHeight',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(height));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$markerEnd = _canadaduane$typed_svg$TypedSvg_Core$attribute('marker-end');
+var _canadaduane$typed_svg$TypedSvg_Attributes$local = _canadaduane$typed_svg$TypedSvg_Core$attribute('local');
+var _canadaduane$typed_svg$TypedSvg_Attributes$lightingColor = _canadaduane$typed_svg$TypedSvg_Core$attribute('lighting-color');
+var _canadaduane$typed_svg$TypedSvg_Attributes$letterSpacing = _canadaduane$typed_svg$TypedSvg_Core$attribute('letter-spacing');
+var _canadaduane$typed_svg$TypedSvg_Attributes$lengthAdjust = function (option) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'lengthAdjust',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthAdjustToString(option));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$lang = _canadaduane$typed_svg$TypedSvg_Core$attribute('lang');
+var _canadaduane$typed_svg$TypedSvg_Attributes$keyTimes = function (floatList) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'keyTimes',
+		A2(
+			_elm_lang$core$String$join,
+			';',
+			A2(_elm_lang$core$List$map, _elm_lang$core$Basics$toString, floatList)));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$keySplines = function (bezierAnchorPointList) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'keySplines',
+		A2(
+			_elm_lang$core$String$join,
+			';',
+			A2(_elm_lang$core$List$map, _canadaduane$typed_svg$TypedSvg_TypesToStrings$bezierAnchorPointToString, bezierAnchorPointList)));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$kerning = function (k) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'kerning',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$kerningToString(k));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$k = _canadaduane$typed_svg$TypedSvg_Core$attribute('k');
+var _canadaduane$typed_svg$TypedSvg_Attributes$intercept = _canadaduane$typed_svg$TypedSvg_Core$attribute('intercept');
+var _canadaduane$typed_svg$TypedSvg_Attributes$imageRendering = function (rendering) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'image-rendering',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$renderingToString(rendering));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$ideographic = _canadaduane$typed_svg$TypedSvg_Core$attribute('ideographic');
+var _canadaduane$typed_svg$TypedSvg_Attributes$horizOriginY = _canadaduane$typed_svg$TypedSvg_Core$attribute('horiz-origin-y');
+var _canadaduane$typed_svg$TypedSvg_Attributes$horizOriginX = _canadaduane$typed_svg$TypedSvg_Core$attribute('horiz-origin-x');
+var _canadaduane$typed_svg$TypedSvg_Attributes$horizAdvX = _canadaduane$typed_svg$TypedSvg_Core$attribute('horiz-adv-x');
+var _canadaduane$typed_svg$TypedSvg_Attributes$height = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'height',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$hanging = _canadaduane$typed_svg$TypedSvg_Core$attribute('hanging');
+var _canadaduane$typed_svg$TypedSvg_Attributes$gradientUnits = function (coordinateSystem) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'gradientUnits',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$coordinateSystemToString(coordinateSystem));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$gradientTransform = function (transforms) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'gradientTransform',
+		A2(
+			_elm_lang$core$String$join,
+			' ',
+			A2(_elm_lang$core$List$map, _canadaduane$typed_svg$TypedSvg_TypesToStrings$transformToString, transforms)));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$glyphRef = _canadaduane$typed_svg$TypedSvg_Core$attribute('glyphRef');
+var _canadaduane$typed_svg$TypedSvg_Attributes$glyphOrientationVertical = _canadaduane$typed_svg$TypedSvg_Core$attribute('glyph-orientation-vertical');
+var _canadaduane$typed_svg$TypedSvg_Attributes$glyphOrientationHorizontal = _canadaduane$typed_svg$TypedSvg_Core$attribute('glyph-orientation-horizontal');
+var _canadaduane$typed_svg$TypedSvg_Attributes$glyphName = _canadaduane$typed_svg$TypedSvg_Core$attribute('glyph-name');
+var _canadaduane$typed_svg$TypedSvg_Attributes$g2 = _canadaduane$typed_svg$TypedSvg_Core$attribute('g2');
+var _canadaduane$typed_svg$TypedSvg_Attributes$g1 = _canadaduane$typed_svg$TypedSvg_Core$attribute('g1');
+var _canadaduane$typed_svg$TypedSvg_Attributes$fy = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'fy',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$fx = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'fx',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$from = function (value) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'from',
+		_elm_lang$core$Basics$toString(value));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$format = _canadaduane$typed_svg$TypedSvg_Core$attribute('format');
+var _canadaduane$typed_svg$TypedSvg_Attributes$fontWeight = function (fontWeight) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'fontWeight',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$fontWeightToString(fontWeight));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$fontVariant = function (fontVariant) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'fontVariant',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$fontVariantToString(fontVariant));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$fontStyle = function (fontStyle) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'fontStyle',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$fontStyleToString(fontStyle));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$fontStretch = function (fontStretch) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'fontStretch',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$fontStretchToString(fontStretch));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$fontSizeAdjust = function (fontSizeAdjust) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'fontSizeAdjust',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$fontSizeAdjustToString(fontSizeAdjust));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$fontSize = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'fontSize',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$fontFamily = function (families) {
+	var _p2 = families;
+	if (_p2.ctor === '[]') {
+		return A2(_canadaduane$typed_svg$TypedSvg_Core$attribute, 'fontFamily', 'inherit');
+	} else {
+		return A2(
+			_canadaduane$typed_svg$TypedSvg_Core$attribute,
+			'fontFamily',
+			A2(_elm_lang$core$String$join, ', ', families));
+	}
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$filter = function (f) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'filter',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$filterToString(f));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$fillRule = function (fillRule) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'fill-rule',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$fillRuleToString(fillRule));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$fillOpacity = function (opacity) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'fill-opacity',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$opacityToString(opacity));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$fill = function (color) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'fill',
+		_eskimoblood$elm_color_extra$Color_Convert$colorToCssRgba(color));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$noFill = _canadaduane$typed_svg$TypedSvg_Attributes$fill(
+	A4(_elm_lang$core$Color$rgba, 0, 0, 0, 0.0));
+var _canadaduane$typed_svg$TypedSvg_Attributes$externalResourcesRequired = function (bool) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'externalResourcesRequired',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$boolToString(bool));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$exponent = _canadaduane$typed_svg$TypedSvg_Core$attribute('exponent');
+var _canadaduane$typed_svg$TypedSvg_Attributes$end = function (timingValues) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'end',
+		A2(
+			_elm_lang$core$String$join,
+			';',
+			A2(_elm_lang$core$List$map, _canadaduane$typed_svg$TypedSvg_TypesToStrings$timingValueAsString, timingValues)));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$enableBackground = _canadaduane$typed_svg$TypedSvg_Core$attribute('enable-background');
+var _canadaduane$typed_svg$TypedSvg_Attributes$dy = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'dy',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$dx = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'dx',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$dur = function (duration) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'dur',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$durationToString(duration));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$dominantBaseline = function (dominantBaseline) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'dominant-baseline',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$dominantBaselineToString(dominantBaseline));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$display = function (display) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'display',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$displayToString(display));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$direction = function (direction) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'direction',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$directionToString(direction));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$descent = _canadaduane$typed_svg$TypedSvg_Core$attribute('descent');
+var _canadaduane$typed_svg$TypedSvg_Attributes$decelerate = _canadaduane$typed_svg$TypedSvg_Core$attribute('decelerate');
+var _canadaduane$typed_svg$TypedSvg_Attributes$d = _canadaduane$typed_svg$TypedSvg_Core$attribute('d');
+var _canadaduane$typed_svg$TypedSvg_Attributes$cy = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'cy',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$cx = function (length) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'cx',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$lengthToString(length));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$cursor = function (cursor) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'cursor',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$cursorToString(cursor));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$contentType = function (t) {
+	return A2(_canadaduane$typed_svg$TypedSvg_Core$attribute, 'type_', t);
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$contentStyleType = function (styleSheetLanguage) {
+	return A2(_canadaduane$typed_svg$TypedSvg_Core$attribute, 'contentStyleType', styleSheetLanguage);
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$contentScriptType = function (mimeType) {
+	return A2(_canadaduane$typed_svg$TypedSvg_Core$attribute, 'contentScriptType', mimeType);
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$color = function (c) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'color',
+		_eskimoblood$elm_color_extra$Color_Convert$colorToCssRgba(c));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$colorRendering = function (rendering) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'color-rendering',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$renderingToString(rendering));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$colorProfile = function (colorProfile) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'color-profile',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$colorProfileToString(colorProfile));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$colorInterpolation = function (colorInterpolation) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'colorInterpolation',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$colorInterpolationToString(colorInterpolation));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$clipRule = function (clipRule) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'clip-rule',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$clipRuleToString(clipRule));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$clipPathUnits = function (coordinateSystem) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'clipPathUnits',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$coordinateSystemToString(coordinateSystem));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$clipPath = function (clipPath) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'clip-path',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$clipPathToString(clipPath));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$clip = function (clip) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'clip',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$clipToString(clip));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$class = function (names) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'class',
+		A2(_elm_lang$core$String$join, ' ', names));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$capHeight = _canadaduane$typed_svg$TypedSvg_Core$attribute('cap-height');
+var _canadaduane$typed_svg$TypedSvg_Attributes$calcMode = function (calcMode) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'calcMode',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$calcModeToString(calcMode));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$by = _canadaduane$typed_svg$TypedSvg_Core$attribute('by');
+var _canadaduane$typed_svg$TypedSvg_Attributes$begin = function (timingValues) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'begin',
+		A2(
+			_elm_lang$core$String$join,
+			';',
+			A2(_elm_lang$core$List$map, _canadaduane$typed_svg$TypedSvg_TypesToStrings$timingValueAsString, timingValues)));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$bbox = _canadaduane$typed_svg$TypedSvg_Core$attribute('bbox');
+var _canadaduane$typed_svg$TypedSvg_Attributes$baseProfile = _canadaduane$typed_svg$TypedSvg_Core$attribute('baseProfile');
+var _canadaduane$typed_svg$TypedSvg_Attributes$baselineShift = function (baselineShift) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'baseline-shift',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$baselineShiftToString(baselineShift));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$autoReverse = _canadaduane$typed_svg$TypedSvg_Core$attribute('autoReverse');
+var _canadaduane$typed_svg$TypedSvg_Attributes$attributeType = function (attributeType) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'attributeType',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$attributeTypeToString(attributeType));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$attributeName = function (name) {
+	return A2(_canadaduane$typed_svg$TypedSvg_Core$attribute, 'attributeName', name);
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$ascent = function (maxDepth) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'ascent',
+		_elm_lang$core$Basics$toString(maxDepth));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$arabicForm = _canadaduane$typed_svg$TypedSvg_Core$attribute('arabic-form');
+var _canadaduane$typed_svg$TypedSvg_Attributes$animationValues = function (values) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'values',
+		A2(
+			_elm_lang$core$String$join,
+			';',
+			A2(_elm_lang$core$List$map, _elm_lang$core$Basics$toString, values)));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$animateTransformType = function (animateTransformType) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'type_',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$animateTransformTypeToString(animateTransformType));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$amplitude = _canadaduane$typed_svg$TypedSvg_Core$attribute('amplitude');
+var _canadaduane$typed_svg$TypedSvg_Attributes$allowReorder = function (allowReorder) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'allowReorder',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$yesNoToString(allowReorder));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$alignmentBaseline = function (alignmentBaseline) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'alignment-baseline',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$alignmentBaselineToString(alignmentBaseline));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$alphabetic = _canadaduane$typed_svg$TypedSvg_Core$attribute('alphabetic');
+var _canadaduane$typed_svg$TypedSvg_Attributes$additive = function (option) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'additive',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$additiveToString(option));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$accumulate = function (option) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'accumulate',
+		_canadaduane$typed_svg$TypedSvg_TypesToStrings$accumulateToString(option));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$accelerate = function (rate) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'accelerate',
+		_elm_lang$core$Basics$toString(rate));
+};
+var _canadaduane$typed_svg$TypedSvg_Attributes$accentHeight = function (height) {
+	return A2(
+		_canadaduane$typed_svg$TypedSvg_Core$attribute,
+		'accent-height',
+		_elm_lang$core$Basics$toString(height));
+};

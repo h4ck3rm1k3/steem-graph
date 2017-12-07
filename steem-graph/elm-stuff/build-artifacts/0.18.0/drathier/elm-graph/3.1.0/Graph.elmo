@@ -1,0 +1,918 @@
+var _drathier$elm_graph$SimpleGraph$foldr = F3(
+	function (func, acc, _p0) {
+		var _p1 = _p0;
+		return A3(
+			_elm_lang$core$Dict$foldr,
+			F2(
+				function (key, _p2) {
+					var _p3 = _p2;
+					return A2(func, key, _p3._0.data);
+				}),
+			acc,
+			_p1._0.nodes);
+	});
+var _drathier$elm_graph$SimpleGraph$foldl = F3(
+	function (func, acc, _p4) {
+		var _p5 = _p4;
+		return A3(
+			_elm_lang$core$Dict$foldl,
+			F2(
+				function (key, _p6) {
+					var _p7 = _p6;
+					return A2(func, key, _p7._0.data);
+				}),
+			acc,
+			_p5._0.nodes);
+	});
+var _drathier$elm_graph$SimpleGraph$nodes = A2(
+	_drathier$elm_graph$SimpleGraph$foldl,
+	F3(
+		function (key, data, list) {
+			return {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: key, _1: data},
+				_1: list
+			};
+		}),
+	{ctor: '[]'});
+var _drathier$elm_graph$SimpleGraph$keys = function (_p8) {
+	var _p9 = _p8;
+	return _elm_lang$core$Dict$keys(_p9._0.nodes);
+};
+var _drathier$elm_graph$SimpleGraph$member = F2(
+	function (key, _p10) {
+		var _p11 = _p10;
+		return A2(_elm_lang$core$Dict$member, key, _p11._0.nodes);
+	});
+var _drathier$elm_graph$SimpleGraph$size = function (_p12) {
+	var _p13 = _p12;
+	return _elm_lang$core$Dict$size(_p13._0.nodes);
+};
+var _drathier$elm_graph$SimpleGraph$isEmpty = function (_p14) {
+	var _p15 = _p14;
+	return _elm_lang$core$Dict$isEmpty(_p15._0.nodes);
+};
+var _drathier$elm_graph$SimpleGraph$get = F2(
+	function (key, _p16) {
+		var _p17 = _p16;
+		return A2(_elm_lang$core$Dict$get, key, _p17._0.nodes);
+	});
+var _drathier$elm_graph$SimpleGraph$edgesWithData = function (graph) {
+	return A3(
+		_drathier$elm_graph$SimpleGraph$foldl,
+		F3(
+			function (key, _p18, list) {
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(
+						_elm_lang$core$List$map,
+						function (_p19) {
+							var _p20 = _p19;
+							return {ctor: '_Tuple3', _0: key, _1: _p20._0, _2: _p20._1};
+						},
+						_elm_lang$core$Dict$toList(
+							A2(
+								_elm_lang$core$Maybe$withDefault,
+								_elm_lang$core$Dict$empty,
+								A2(
+									_elm_lang$core$Maybe$map,
+									function (_p21) {
+										var _p22 = _p21;
+										return _p22._0.outgoing;
+									},
+									A2(_drathier$elm_graph$SimpleGraph$get, key, graph))))),
+					list);
+			}),
+		{ctor: '[]'},
+		graph);
+};
+var _drathier$elm_graph$SimpleGraph$outgoing = F2(
+	function (key, graph) {
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			_elm_lang$core$Set$empty,
+			A2(
+				_elm_lang$core$Maybe$map,
+				function (_p23) {
+					var _p24 = _p23;
+					return _elm_lang$core$Set$fromList(
+						_elm_lang$core$Dict$keys(_p24._0.outgoing));
+				},
+				A2(_drathier$elm_graph$SimpleGraph$get, key, graph)));
+	});
+var _drathier$elm_graph$SimpleGraph$memberEdge = F2(
+	function (_p25, graph) {
+		var _p26 = _p25;
+		return A2(
+			_elm_lang$core$Set$member,
+			_p26._1,
+			A2(_drathier$elm_graph$SimpleGraph$outgoing, _p26._0, graph));
+	});
+var _drathier$elm_graph$SimpleGraph$edges = function (graph) {
+	return A3(
+		_drathier$elm_graph$SimpleGraph$foldl,
+		F3(
+			function (key, data, list) {
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(
+						_elm_lang$core$List$map,
+						function (out) {
+							return {ctor: '_Tuple2', _0: key, _1: out};
+						},
+						_elm_lang$core$Set$toList(
+							A2(_drathier$elm_graph$SimpleGraph$outgoing, key, graph))),
+					list);
+			}),
+		{ctor: '[]'},
+		graph);
+};
+var _drathier$elm_graph$SimpleGraph$graphviz = function (graph) {
+	var quote = function (a) {
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			'\"',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(a),
+				'\"'));
+	};
+	var e = A2(
+		_elm_lang$core$String$join,
+		';',
+		A2(
+			_elm_lang$core$List$map,
+			function (_p27) {
+				var _p28 = _p27;
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					quote(_p28._0),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'->',
+						quote(_p28._1)));
+			},
+			_drathier$elm_graph$SimpleGraph$edges(graph)));
+	var n = A2(
+		_elm_lang$core$String$join,
+		';',
+		A2(
+			_elm_lang$core$List$map,
+			function (_p29) {
+				var _p30 = _p29;
+				return quote(_p30._0);
+			},
+			_drathier$elm_graph$SimpleGraph$nodes(graph)));
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		'digraph g { ',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			n,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				';',
+				A2(_elm_lang$core$Basics_ops['++'], e, '}'))));
+};
+var _drathier$elm_graph$SimpleGraph$reversePostOrderHelper = F4(
+	function (nodeKeys, keyOrder, seenKeys, graph) {
+		reversePostOrderHelper:
+		while (true) {
+			var _p31 = nodeKeys;
+			if (_p31.ctor === '[]') {
+				return {ctor: '_Tuple2', _0: seenKeys, _1: keyOrder};
+			} else {
+				var _p34 = _p31._1;
+				var _p33 = _p31._0;
+				if (A2(_elm_lang$core$Set$member, _p33, seenKeys)) {
+					var _v16 = _p34,
+						_v17 = keyOrder,
+						_v18 = seenKeys,
+						_v19 = graph;
+					nodeKeys = _v16;
+					keyOrder = _v17;
+					seenKeys = _v18;
+					graph = _v19;
+					continue reversePostOrderHelper;
+				} else {
+					var _p32 = A4(
+						_drathier$elm_graph$SimpleGraph$reversePostOrderHelper,
+						_elm_lang$core$Set$toList(
+							A2(_drathier$elm_graph$SimpleGraph$outgoing, _p33, graph)),
+						keyOrder,
+						A2(_elm_lang$core$Set$insert, _p33, seenKeys),
+						graph);
+					var seen = _p32._0;
+					var order = _p32._1;
+					var _v20 = _p34,
+						_v21 = {ctor: '::', _0: _p33, _1: order},
+						_v22 = seen,
+						_v23 = graph;
+					nodeKeys = _v20;
+					keyOrder = _v21;
+					seenKeys = _v22;
+					graph = _v23;
+					continue reversePostOrderHelper;
+				}
+			}
+		}
+	});
+var _drathier$elm_graph$SimpleGraph$incoming = F2(
+	function (key, graph) {
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			_elm_lang$core$Set$empty,
+			A2(
+				_elm_lang$core$Maybe$map,
+				function (_p35) {
+					var _p36 = _p35;
+					return _p36._0.incoming;
+				},
+				A2(_drathier$elm_graph$SimpleGraph$get, key, graph)));
+	});
+var _drathier$elm_graph$SimpleGraph$isAcyclicHelper = F3(
+	function (topSortedNodes, seen, graph) {
+		isAcyclicHelper:
+		while (true) {
+			var _p37 = topSortedNodes;
+			if (_p37.ctor === '[]') {
+				return true;
+			} else {
+				var _p38 = _p37._0;
+				if (A2(
+					_elm_lang$core$Set$member,
+					_p38,
+					A2(_drathier$elm_graph$SimpleGraph$incoming, _p38, graph))) {
+					return false;
+				} else {
+					if (!_elm_lang$core$Set$isEmpty(
+						A2(
+							_elm_lang$core$Set$intersect,
+							seen,
+							A2(_drathier$elm_graph$SimpleGraph$incoming, _p38, graph)))) {
+						return false;
+					} else {
+						var _v26 = _p37._1,
+							_v27 = A2(_elm_lang$core$Set$insert, _p38, seen),
+							_v28 = graph;
+						topSortedNodes = _v26;
+						seen = _v27;
+						graph = _v28;
+						continue isAcyclicHelper;
+					}
+				}
+			}
+		}
+	});
+var _drathier$elm_graph$SimpleGraph$getEdgeData = F3(
+	function (from, to, graph) {
+		return _elm_community$maybe_extra$Maybe_Extra$join(
+			A2(
+				_elm_lang$core$Maybe$andThen,
+				function (_p39) {
+					var _p40 = _p39;
+					return A2(_elm_lang$core$Dict$get, to, _p40._0.outgoing);
+				},
+				A2(_drathier$elm_graph$SimpleGraph$get, from, graph)));
+	});
+var _drathier$elm_graph$SimpleGraph$getData = F2(
+	function (key, graph) {
+		return A2(
+			_elm_lang$core$Maybe$andThen,
+			function (_p41) {
+				var _p42 = _p41;
+				return _p42._0.data;
+			},
+			A2(_drathier$elm_graph$SimpleGraph$get, key, graph));
+	});
+var _drathier$elm_graph$SimpleGraph$Graph = function (a) {
+	return {ctor: 'Graph', _0: a};
+};
+var _drathier$elm_graph$SimpleGraph$insertRawNode = F3(
+	function (key, node, _p43) {
+		var _p44 = _p43;
+		var _p45 = _p44._0;
+		return _drathier$elm_graph$SimpleGraph$Graph(
+			_elm_lang$core$Native_Utils.update(
+				_p45,
+				{
+					nodes: A3(_elm_lang$core$Dict$insert, key, node, _p45.nodes)
+				}));
+	});
+var _drathier$elm_graph$SimpleGraph$empty = _drathier$elm_graph$SimpleGraph$Graph(
+	{nodes: _elm_lang$core$Dict$empty});
+var _drathier$elm_graph$SimpleGraph$updateNode = F3(
+	function (func, key, _p46) {
+		var _p47 = _p46;
+		var _p49 = _p47._0;
+		var _p48 = A2(
+			_drathier$elm_graph$SimpleGraph$get,
+			key,
+			_drathier$elm_graph$SimpleGraph$Graph(_p49));
+		if (_p48.ctor === 'Just') {
+			return _drathier$elm_graph$SimpleGraph$Graph(
+				_elm_lang$core$Native_Utils.update(
+					_p49,
+					{
+						nodes: A3(
+							_elm_lang$core$Dict$insert,
+							key,
+							func(_p48._0),
+							_p49.nodes)
+					}));
+		} else {
+			return _drathier$elm_graph$SimpleGraph$Graph(_p49);
+		}
+	});
+var _drathier$elm_graph$SimpleGraph$reversePostOrder = function (_p50) {
+	var _p51 = _p50;
+	var _p52 = _p51._0;
+	return _elm_lang$core$Tuple$second(
+		A4(
+			_drathier$elm_graph$SimpleGraph$reversePostOrderHelper,
+			_elm_lang$core$Dict$keys(_p52.nodes),
+			{ctor: '[]'},
+			_elm_lang$core$Set$empty,
+			_drathier$elm_graph$SimpleGraph$Graph(_p52)));
+};
+var _drathier$elm_graph$SimpleGraph$isAcyclic = function (graph) {
+	return A3(
+		_drathier$elm_graph$SimpleGraph$isAcyclicHelper,
+		_elm_lang$core$List$reverse(
+			_drathier$elm_graph$SimpleGraph$reversePostOrder(graph)),
+		_elm_lang$core$Set$empty,
+		graph);
+};
+var _drathier$elm_graph$SimpleGraph$topologicalSort = function (graph) {
+	var revpo = _drathier$elm_graph$SimpleGraph$reversePostOrder(graph);
+	return A3(
+		_drathier$elm_graph$SimpleGraph$isAcyclicHelper,
+		_elm_lang$core$List$reverse(revpo),
+		_elm_lang$core$Set$empty,
+		graph) ? _elm_lang$core$Maybe$Just(revpo) : _elm_lang$core$Maybe$Nothing;
+};
+var _drathier$elm_graph$SimpleGraph$postOrder = function (graph) {
+	return _elm_lang$core$List$reverse(
+		_drathier$elm_graph$SimpleGraph$reversePostOrder(graph));
+};
+var _drathier$elm_graph$SimpleGraph$valid = function (_p53) {
+	var _p54 = _p53;
+	var _p57 = _p54._0;
+	var reachable = function (key) {
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			_elm_lang$core$Set$empty,
+			A2(
+				_elm_lang$core$Maybe$map,
+				function (_p55) {
+					var _p56 = _p55;
+					return _p56._0.reachable;
+				},
+				A2(
+					_drathier$elm_graph$SimpleGraph$get,
+					key,
+					_drathier$elm_graph$SimpleGraph$Graph(_p57))));
+	};
+	var reachabilityCacheIsStale = function (key) {
+		return (!_elm_lang$core$Native_Utils.eq(
+			A2(
+				_drathier$elm_graph$SimpleGraph$outgoing,
+				key,
+				_drathier$elm_graph$SimpleGraph$Graph(_p57)),
+			_elm_lang$core$Set$empty)) && (!_elm_lang$core$Native_Utils.eq(
+			reachable(key),
+			A3(
+				_elm_lang$core$List$foldl,
+				_elm_lang$core$Set$union,
+				A2(
+					_drathier$elm_graph$SimpleGraph$outgoing,
+					key,
+					_drathier$elm_graph$SimpleGraph$Graph(_p57)),
+				A2(
+					_elm_lang$core$List$map,
+					function (key) {
+						return reachable(key);
+					},
+					_elm_lang$core$Set$toList(
+						A2(
+							_drathier$elm_graph$SimpleGraph$outgoing,
+							key,
+							_drathier$elm_graph$SimpleGraph$Graph(_p57)))))));
+	};
+	var hasDanglingIncomingEdges = function (key) {
+		return !A2(
+			_elm_lang$core$List$all,
+			_elm_lang$core$Set$member(key),
+			A2(
+				_elm_lang$core$List$map,
+				function (key) {
+					return A2(
+						_drathier$elm_graph$SimpleGraph$outgoing,
+						key,
+						_drathier$elm_graph$SimpleGraph$Graph(_p57));
+				},
+				_elm_lang$core$Set$toList(
+					A2(
+						_drathier$elm_graph$SimpleGraph$incoming,
+						key,
+						_drathier$elm_graph$SimpleGraph$Graph(_p57)))));
+	};
+	var hasDanglingOutgoingEdges = function (key) {
+		return !A2(
+			_elm_lang$core$List$all,
+			_elm_lang$core$Set$member(key),
+			A2(
+				_elm_lang$core$List$map,
+				function (key) {
+					return A2(
+						_drathier$elm_graph$SimpleGraph$incoming,
+						key,
+						_drathier$elm_graph$SimpleGraph$Graph(_p57));
+				},
+				_elm_lang$core$Set$toList(
+					A2(
+						_drathier$elm_graph$SimpleGraph$outgoing,
+						key,
+						_drathier$elm_graph$SimpleGraph$Graph(_p57)))));
+	};
+	return A2(
+		_elm_lang$core$List$any,
+		hasDanglingOutgoingEdges,
+		_drathier$elm_graph$SimpleGraph$keys(
+			_drathier$elm_graph$SimpleGraph$Graph(_p57))) ? _elm_lang$core$Result$Err(
+		_elm_lang$core$Basics$toString(
+			{
+				ctor: '_Tuple2',
+				_0: 'found dangling outgoing edge',
+				_1: _drathier$elm_graph$SimpleGraph$Graph(_p57)
+			})) : (A2(
+		_elm_lang$core$List$any,
+		hasDanglingIncomingEdges,
+		_drathier$elm_graph$SimpleGraph$keys(
+			_drathier$elm_graph$SimpleGraph$Graph(_p57))) ? _elm_lang$core$Result$Err(
+		_elm_lang$core$Basics$toString(
+			{
+				ctor: '_Tuple2',
+				_0: 'found dangling incoming edge',
+				_1: _drathier$elm_graph$SimpleGraph$Graph(_p57)
+			})) : _elm_lang$core$Result$Ok(
+		{ctor: '_Tuple0'}));
+};
+var _drathier$elm_graph$SimpleGraph$Node = function (a) {
+	return {ctor: 'Node', _0: a};
+};
+var _drathier$elm_graph$SimpleGraph$node = _drathier$elm_graph$SimpleGraph$Node(
+	{data: _elm_lang$core$Maybe$Nothing, incoming: _elm_lang$core$Set$empty, outgoing: _elm_lang$core$Dict$empty, reachable: _elm_lang$core$Set$empty});
+var _drathier$elm_graph$SimpleGraph$getOrCreate = F2(
+	function (key, graph) {
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			_drathier$elm_graph$SimpleGraph$node,
+			A2(_drathier$elm_graph$SimpleGraph$get, key, graph));
+	});
+var _drathier$elm_graph$SimpleGraph$insert = F2(
+	function (key, graph) {
+		return A3(
+			_drathier$elm_graph$SimpleGraph$insertRawNode,
+			key,
+			A2(_drathier$elm_graph$SimpleGraph$getOrCreate, key, graph),
+			graph);
+	});
+var _drathier$elm_graph$SimpleGraph$nodeData = function (data) {
+	return _drathier$elm_graph$SimpleGraph$Node(
+		{
+			data: _elm_lang$core$Maybe$Just(data),
+			incoming: _elm_lang$core$Set$empty,
+			outgoing: _elm_lang$core$Dict$empty,
+			reachable: _elm_lang$core$Set$empty
+		});
+};
+var _drathier$elm_graph$SimpleGraph$insertData = F3(
+	function (key, data, _p58) {
+		var _p59 = _p58;
+		var _p61 = _p59._0;
+		var _p60 = A2(
+			_drathier$elm_graph$SimpleGraph$getOrCreate,
+			key,
+			_drathier$elm_graph$SimpleGraph$Graph(_p61));
+		return _drathier$elm_graph$SimpleGraph$Graph(
+			_elm_lang$core$Native_Utils.update(
+				_p61,
+				{
+					nodes: A3(
+						_elm_lang$core$Dict$insert,
+						key,
+						_drathier$elm_graph$SimpleGraph$Node(
+							_elm_lang$core$Native_Utils.update(
+								_p60._0,
+								{
+									data: _elm_lang$core$Maybe$Just(data)
+								})),
+						_p61.nodes)
+				}));
+	});
+var _drathier$elm_graph$SimpleGraph$singleton = F2(
+	function (key, data) {
+		return A3(_drathier$elm_graph$SimpleGraph$insertData, key, data, _drathier$elm_graph$SimpleGraph$empty);
+	});
+var _drathier$elm_graph$SimpleGraph$update = F3(
+	function (key, fn, graph) {
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			graph,
+			A2(
+				_elm_lang$core$Maybe$map,
+				function (data) {
+					return A3(_drathier$elm_graph$SimpleGraph$insertData, key, data, graph);
+				},
+				fn(
+					A2(_drathier$elm_graph$SimpleGraph$getData, key, graph))));
+	});
+var _drathier$elm_graph$SimpleGraph$insertEdgeDataHelper = F4(
+	function (from, to, wrappedEdgeData, graph) {
+		var _p62 = A2(_drathier$elm_graph$SimpleGraph$getOrCreate, to, graph);
+		var toNode = _p62._0;
+		var _p63 = A2(_drathier$elm_graph$SimpleGraph$getOrCreate, from, graph);
+		var fromNode = _p63._0;
+		return _elm_lang$core$Native_Utils.eq(from, to) ? A3(
+			_drathier$elm_graph$SimpleGraph$insertRawNode,
+			from,
+			_drathier$elm_graph$SimpleGraph$Node(
+				_elm_lang$core$Native_Utils.update(
+					fromNode,
+					{
+						incoming: A2(_elm_lang$core$Set$insert, from, fromNode.incoming),
+						outgoing: A3(_elm_lang$core$Dict$insert, from, wrappedEdgeData, fromNode.outgoing)
+					})),
+			graph) : A3(
+			_drathier$elm_graph$SimpleGraph$insertRawNode,
+			from,
+			_drathier$elm_graph$SimpleGraph$Node(
+				_elm_lang$core$Native_Utils.update(
+					fromNode,
+					{
+						outgoing: A3(_elm_lang$core$Dict$insert, to, wrappedEdgeData, fromNode.outgoing)
+					})),
+			A3(
+				_drathier$elm_graph$SimpleGraph$insertRawNode,
+				to,
+				_drathier$elm_graph$SimpleGraph$Node(
+					_elm_lang$core$Native_Utils.update(
+						toNode,
+						{
+							incoming: A2(_elm_lang$core$Set$insert, from, toNode.incoming)
+						})),
+				graph));
+	});
+var _drathier$elm_graph$SimpleGraph$insertEdge = F3(
+	function (from, to, graph) {
+		return A4(_drathier$elm_graph$SimpleGraph$insertEdgeDataHelper, from, to, _elm_lang$core$Maybe$Nothing, graph);
+	});
+var _drathier$elm_graph$SimpleGraph$insertEdgeData = F4(
+	function (from, to, edgeData, graph) {
+		return A4(
+			_drathier$elm_graph$SimpleGraph$insertEdgeDataHelper,
+			from,
+			to,
+			_elm_lang$core$Maybe$Just(edgeData),
+			graph);
+	});
+var _drathier$elm_graph$SimpleGraph$updateEdge = F4(
+	function (from, to, fn, graph) {
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			graph,
+			A2(
+				_elm_lang$core$Maybe$map,
+				function (edgeData) {
+					return A4(_drathier$elm_graph$SimpleGraph$insertEdgeData, from, to, edgeData, graph);
+				},
+				fn(
+					A3(_drathier$elm_graph$SimpleGraph$getEdgeData, from, to, graph))));
+	});
+var _drathier$elm_graph$SimpleGraph$removeEdge = F3(
+	function (from, to, graph) {
+		var updateOutgoing = function (_p64) {
+			var _p65 = _p64;
+			var _p66 = _p65._0;
+			return _drathier$elm_graph$SimpleGraph$Node(
+				_elm_lang$core$Native_Utils.update(
+					_p66,
+					{
+						outgoing: A2(_elm_lang$core$Dict$remove, to, _p66.outgoing)
+					}));
+		};
+		var updateIncoming = function (_p67) {
+			var _p68 = _p67;
+			var _p69 = _p68._0;
+			return _drathier$elm_graph$SimpleGraph$Node(
+				_elm_lang$core$Native_Utils.update(
+					_p69,
+					{
+						incoming: A2(_elm_lang$core$Set$remove, from, _p69.incoming)
+					}));
+		};
+		return A3(
+			_drathier$elm_graph$SimpleGraph$updateNode,
+			updateOutgoing,
+			from,
+			A3(_drathier$elm_graph$SimpleGraph$updateNode, updateIncoming, to, graph));
+	});
+var _drathier$elm_graph$SimpleGraph$remove = F2(
+	function (key, _p70) {
+		var _p71 = _p70;
+		var _p74 = _p71._0;
+		var _p72 = A2(
+			_drathier$elm_graph$SimpleGraph$get,
+			key,
+			_drathier$elm_graph$SimpleGraph$Graph(_p74));
+		if (_p72.ctor === 'Nothing') {
+			return _drathier$elm_graph$SimpleGraph$Graph(_p74);
+		} else {
+			var _p73 = _p72._0._0;
+			var newGraph = _drathier$elm_graph$SimpleGraph$Graph(
+				_elm_lang$core$Native_Utils.update(
+					_p74,
+					{
+						nodes: A2(_elm_lang$core$Dict$remove, key, _p74.nodes)
+					}));
+			var outgoingEdgesToRemove = A2(
+				_elm_lang$core$List$map,
+				function (out) {
+					return {ctor: '_Tuple2', _0: key, _1: out};
+				},
+				_elm_lang$core$Dict$keys(_p73.outgoing));
+			var incomingEdgesToRemove = A2(
+				_elm_lang$core$List$map,
+				function (in_) {
+					return {ctor: '_Tuple2', _0: in_, _1: key};
+				},
+				_elm_lang$core$Set$toList(_p73.incoming));
+			return A3(
+				_elm_lang$core$List$foldl,
+				_elm_lang$core$Basics$uncurry(_drathier$elm_graph$SimpleGraph$removeEdge),
+				newGraph,
+				A2(_elm_lang$core$Basics_ops['++'], incomingEdgesToRemove, outgoingEdgesToRemove));
+		}
+	});
+var _drathier$elm_graph$SimpleGraph$removeEdgeData = F3(
+	function (from, to, graph) {
+		return A3(
+			_drathier$elm_graph$SimpleGraph$insertEdge,
+			from,
+			to,
+			A3(_drathier$elm_graph$SimpleGraph$removeEdge, from, to, graph));
+	});
+var _drathier$elm_graph$SimpleGraph$removeData = F2(
+	function (key, _p75) {
+		var _p76 = _p75;
+		var _p79 = _p76._0;
+		return _drathier$elm_graph$SimpleGraph$Graph(
+			_elm_lang$core$Native_Utils.update(
+				_p79,
+				{
+					nodes: A3(
+						_elm_lang$core$Dict$update,
+						key,
+						_elm_lang$core$Maybe$map(
+							function (_p77) {
+								var _p78 = _p77;
+								return _drathier$elm_graph$SimpleGraph$Node(
+									_elm_lang$core$Native_Utils.update(
+										_p78._0,
+										{data: _elm_lang$core$Maybe$Nothing}));
+							}),
+						_p79.nodes)
+				}));
+	});
+var _drathier$elm_graph$SimpleGraph$map = F2(
+	function (func, _p80) {
+		var _p81 = _p80;
+		var _p85 = _p81._0;
+		return _drathier$elm_graph$SimpleGraph$Graph(
+			_elm_lang$core$Native_Utils.update(
+				_p85,
+				{
+					nodes: A2(
+						_elm_lang$core$Dict$map,
+						F2(
+							function (key, _p82) {
+								var _p83 = _p82;
+								var _p84 = _p83._0;
+								return _drathier$elm_graph$SimpleGraph$Node(
+									_elm_lang$core$Native_Utils.update(
+										_p84,
+										{
+											data: A2(func, key, _p84.data)
+										}));
+							}),
+						_p85.nodes)
+				}));
+	});
+var _drathier$elm_graph$SimpleGraph$mapEdge = F2(
+	function (func, _p86) {
+		var _p87 = _p86;
+		var _p91 = _p87._0;
+		return _drathier$elm_graph$SimpleGraph$Graph(
+			_elm_lang$core$Native_Utils.update(
+				_p91,
+				{
+					nodes: A2(
+						_elm_lang$core$Dict$map,
+						F2(
+							function (from, _p88) {
+								var _p89 = _p88;
+								var _p90 = _p89._0;
+								return _drathier$elm_graph$SimpleGraph$Node(
+									_elm_lang$core$Native_Utils.update(
+										_p90,
+										{
+											outgoing: A2(
+												_elm_lang$core$Dict$map,
+												func(from),
+												_p90.outgoing)
+										}));
+							}),
+						_p91.nodes)
+				}));
+	});
+var _drathier$elm_graph$SimpleGraph$cleanup = function (_p92) {
+	var _p93 = _p92;
+	var _p98 = _p93._0;
+	var removeDeadEdges = F2(
+		function (key, _p94) {
+			var _p95 = _p94;
+			var _p97 = _p95._0;
+			return _drathier$elm_graph$SimpleGraph$Node(
+				_elm_lang$core$Native_Utils.update(
+					_p97,
+					{
+						incoming: A2(
+							_elm_lang$core$Set$filter,
+							function (key) {
+								return !_elm_lang$core$Native_Utils.eq(
+									A2(
+										_drathier$elm_graph$SimpleGraph$get,
+										key,
+										_drathier$elm_graph$SimpleGraph$Graph(_p98)),
+									_elm_lang$core$Maybe$Nothing);
+							},
+							_p97.incoming),
+						outgoing: A2(
+							_elm_lang$core$Dict$filter,
+							F2(
+								function (key, _p96) {
+									return !_elm_lang$core$Native_Utils.eq(
+										A2(
+											_drathier$elm_graph$SimpleGraph$get,
+											key,
+											_drathier$elm_graph$SimpleGraph$Graph(_p98)),
+										_elm_lang$core$Maybe$Nothing);
+								}),
+							_p97.outgoing)
+					}));
+		});
+	return _drathier$elm_graph$SimpleGraph$Graph(
+		_elm_lang$core$Native_Utils.update(
+			_p98,
+			{
+				nodes: A2(_elm_lang$core$Dict$map, removeDeadEdges, _p98.nodes)
+			}));
+};
+var _drathier$elm_graph$SimpleGraph$partition = F2(
+	function (func, _p99) {
+		var _p100 = _p99;
+		var add = F3(
+			function (key, _p102, _p101) {
+				var _p103 = _p102;
+				var _p107 = _p103._0;
+				var _p104 = _p101;
+				var _p106 = _p104._1;
+				var _p105 = _p104._0;
+				return A2(func, key, _p107.data) ? {
+					ctor: '_Tuple2',
+					_0: A3(
+						_elm_lang$core$Dict$insert,
+						key,
+						_drathier$elm_graph$SimpleGraph$Node(_p107),
+						_p105),
+					_1: _p106
+				} : {
+					ctor: '_Tuple2',
+					_0: _p105,
+					_1: A3(
+						_elm_lang$core$Dict$insert,
+						key,
+						_drathier$elm_graph$SimpleGraph$Node(_p107),
+						_p106)
+				};
+			});
+		return A2(
+			_elm_lang$core$Tuple$mapSecond,
+			_drathier$elm_graph$SimpleGraph$cleanup,
+			A2(
+				_elm_lang$core$Tuple$mapFirst,
+				_drathier$elm_graph$SimpleGraph$cleanup,
+				A2(
+					_elm_lang$core$Tuple$mapSecond,
+					function (x) {
+						return _drathier$elm_graph$SimpleGraph$Graph(
+							{nodes: x});
+					},
+					A2(
+						_elm_lang$core$Tuple$mapFirst,
+						function (x) {
+							return _drathier$elm_graph$SimpleGraph$Graph(
+								{nodes: x});
+						},
+						A3(
+							_elm_lang$core$Dict$foldl,
+							add,
+							{ctor: '_Tuple2', _0: _elm_lang$core$Dict$empty, _1: _elm_lang$core$Dict$empty},
+							_p100._0.nodes)))));
+	});
+var _drathier$elm_graph$SimpleGraph$filter = F2(
+	function (func, graph) {
+		return _elm_lang$core$Tuple$first(
+			A2(_drathier$elm_graph$SimpleGraph$partition, func, graph));
+	});
+var _drathier$elm_graph$SimpleGraph$union = F2(
+	function (_p109, _p108) {
+		var _p110 = _p109;
+		var _p111 = _p108;
+		return _drathier$elm_graph$SimpleGraph$cleanup(
+			_drathier$elm_graph$SimpleGraph$Graph(
+				{
+					nodes: A6(
+						_elm_lang$core$Dict$merge,
+						F3(
+							function (key, node, dict) {
+								return A3(_elm_lang$core$Dict$insert, key, node, dict);
+							}),
+						F4(
+							function (key, _p113, _p112, dict) {
+								var _p114 = _p113;
+								var _p117 = _p114._0;
+								var _p115 = _p112;
+								var _p116 = _p115._0;
+								return A3(
+									_elm_lang$core$Dict$insert,
+									key,
+									_drathier$elm_graph$SimpleGraph$Node(
+										{
+											data: A2(_elm_community$maybe_extra$Maybe_Extra$or, _p117.data, _p116.data),
+											incoming: A2(_elm_lang$core$Set$union, _p117.incoming, _p116.incoming),
+											outgoing: A2(_elm_lang$core$Dict$union, _p117.outgoing, _p116.outgoing),
+											reachable: _elm_lang$core$Set$empty
+										}),
+									dict);
+							}),
+						F3(
+							function (key, node, dict) {
+								return A3(_elm_lang$core$Dict$insert, key, node, dict);
+							}),
+						_p110._0.nodes,
+						_p111._0.nodes,
+						_elm_lang$core$Dict$empty)
+				}));
+	});
+var _drathier$elm_graph$SimpleGraph$intersect = F2(
+	function (_p119, _p118) {
+		var _p120 = _p119;
+		var _p121 = _p118;
+		return _drathier$elm_graph$SimpleGraph$cleanup(
+			_drathier$elm_graph$SimpleGraph$Graph(
+				{
+					nodes: A6(
+						_elm_lang$core$Dict$merge,
+						F3(
+							function (key, node, dict) {
+								return dict;
+							}),
+						F4(
+							function (key, _p123, _p122, dict) {
+								var _p124 = _p123;
+								var _p127 = _p124._0;
+								var _p125 = _p122;
+								var _p126 = _p125._0;
+								return A3(
+									_elm_lang$core$Dict$insert,
+									key,
+									_drathier$elm_graph$SimpleGraph$Node(
+										{
+											data: _elm_lang$core$Native_Utils.eq(_p127.data, _p126.data) ? _p127.data : _elm_lang$core$Maybe$Nothing,
+											incoming: A2(_elm_lang$core$Set$intersect, _p127.incoming, _p126.incoming),
+											outgoing: A2(_elm_lang$core$Dict$intersect, _p127.outgoing, _p126.outgoing),
+											reachable: _elm_lang$core$Set$empty
+										}),
+									dict);
+							}),
+						F3(
+							function (key, node, dict) {
+								return dict;
+							}),
+						_p120._0.nodes,
+						_p121._0.nodes,
+						_elm_lang$core$Dict$empty)
+				}));
+	});

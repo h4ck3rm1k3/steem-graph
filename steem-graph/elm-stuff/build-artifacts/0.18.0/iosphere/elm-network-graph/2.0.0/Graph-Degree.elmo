@@ -1,0 +1,88 @@
+var _iosphere$elm_network_graph$Graph_Degree$compareDegreesDictTuple = F3(
+	function (sortByField, _p1, _p0) {
+		var _p2 = _p1;
+		var _p3 = _p0;
+		var degreeCompare = A2(
+			_elm_lang$core$Basics$compare,
+			sortByField(_p2._1),
+			sortByField(_p3._1));
+		return _elm_lang$core$Native_Utils.eq(degreeCompare, _elm_lang$core$Basics$EQ) ? A2(_elm_lang$core$Basics$compare, _p3._0, _p2._0) : degreeCompare;
+	});
+var _iosphere$elm_network_graph$Graph_Degree$incoming = F2(
+	function (graph, identifier) {
+		return _elm_lang$core$List$length(
+			A2(
+				_elm_lang$core$List$filter,
+				function (edge) {
+					return _elm_lang$core$Native_Utils.eq(edge.to, identifier);
+				},
+				graph.edges));
+	});
+var _iosphere$elm_network_graph$Graph_Degree$outgoing = F2(
+	function (graph, identifier) {
+		return _elm_lang$core$List$length(
+			A2(
+				_elm_lang$core$List$filter,
+				function (edge) {
+					return _elm_lang$core$Native_Utils.eq(edge.from, identifier);
+				},
+				graph.edges));
+	});
+var _iosphere$elm_network_graph$Graph_Degree$InOut = F2(
+	function (a, b) {
+		return {incoming: a, outgoing: b};
+	});
+var _iosphere$elm_network_graph$Graph_Degree$degreesInDict = F2(
+	function (dict, identifier) {
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			A2(_iosphere$elm_network_graph$Graph_Degree$InOut, 0, 0),
+			A2(_elm_lang$core$Dict$get, identifier, dict));
+	});
+var _iosphere$elm_network_graph$Graph_Degree$updateDegrees = F3(
+	function (allEdges, edge, dict) {
+		var toDegree = A2(_iosphere$elm_network_graph$Graph_Degree$degreesInDict, dict, edge.to);
+		var updatedToDegree = _elm_lang$core$Native_Utils.update(
+			toDegree,
+			{incoming: toDegree.incoming + 1});
+		var fromDegree = A2(_iosphere$elm_network_graph$Graph_Degree$degreesInDict, dict, edge.from);
+		var updatedFromDegree = _elm_lang$core$Native_Utils.update(
+			fromDegree,
+			{outgoing: fromDegree.outgoing + 1});
+		return A3(
+			_elm_lang$core$Dict$insert,
+			edge.to,
+			updatedToDegree,
+			A3(_elm_lang$core$Dict$insert, edge.from, updatedFromDegree, dict));
+	});
+var _iosphere$elm_network_graph$Graph_Degree$allDegrees = function (graph) {
+	return A3(
+		_elm_lang$core$List$foldl,
+		F2(
+			function (edge, dict) {
+				return A3(_iosphere$elm_network_graph$Graph_Degree$updateDegrees, graph.edges, edge, dict);
+			}),
+		_elm_lang$core$Dict$empty,
+		graph.edges);
+};
+var _iosphere$elm_network_graph$Graph_Degree$topDegrees = function (graph) {
+	var degreesList = _elm_lang$core$Dict$toList(
+		_iosphere$elm_network_graph$Graph_Degree$allDegrees(graph));
+	var topIn = _elm_lang$core$List$reverse(
+		A2(
+			_elm_lang$core$List$sortWith,
+			_iosphere$elm_network_graph$Graph_Degree$compareDegreesDictTuple(
+				function (_) {
+					return _.incoming;
+				}),
+			degreesList));
+	var topOut = _elm_lang$core$List$reverse(
+		A2(
+			_elm_lang$core$List$sortWith,
+			_iosphere$elm_network_graph$Graph_Degree$compareDegreesDictTuple(
+				function (_) {
+					return _.outgoing;
+				}),
+			degreesList));
+	return A2(_iosphere$elm_network_graph$Graph_Degree$InOut, topIn, topOut);
+};

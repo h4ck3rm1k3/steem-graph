@@ -1,0 +1,27 @@
+var _elm_community$typed_svg$TypedSvg_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
+var _elm_community$typed_svg$TypedSvg_Events$simpleOn = F2(
+	function (name, msg) {
+		return A2(
+			_elm_community$typed_svg$TypedSvg_Events$on,
+			name,
+			_elm_lang$core$Json_Decode$succeed(msg));
+	});
+var _elm_community$typed_svg$TypedSvg_Events$onBegin = _elm_community$typed_svg$TypedSvg_Events$simpleOn('begin');
+var _elm_community$typed_svg$TypedSvg_Events$onEnd = _elm_community$typed_svg$TypedSvg_Events$simpleOn('end');
+var _elm_community$typed_svg$TypedSvg_Events$onRepeat = _elm_community$typed_svg$TypedSvg_Events$simpleOn('repeat');
+var _elm_community$typed_svg$TypedSvg_Events$onAbort = _elm_community$typed_svg$TypedSvg_Events$simpleOn('abort');
+var _elm_community$typed_svg$TypedSvg_Events$onError = _elm_community$typed_svg$TypedSvg_Events$simpleOn('error');
+var _elm_community$typed_svg$TypedSvg_Events$onResize = _elm_community$typed_svg$TypedSvg_Events$simpleOn('resize');
+var _elm_community$typed_svg$TypedSvg_Events$onScroll = _elm_community$typed_svg$TypedSvg_Events$simpleOn('scroll');
+var _elm_community$typed_svg$TypedSvg_Events$onLoad = _elm_community$typed_svg$TypedSvg_Events$simpleOn('load');
+var _elm_community$typed_svg$TypedSvg_Events$onUnload = _elm_community$typed_svg$TypedSvg_Events$simpleOn('unload');
+var _elm_community$typed_svg$TypedSvg_Events$onZoom = _elm_community$typed_svg$TypedSvg_Events$simpleOn('zoom');
+var _elm_community$typed_svg$TypedSvg_Events$onActivate = _elm_community$typed_svg$TypedSvg_Events$simpleOn('activate');
+var _elm_community$typed_svg$TypedSvg_Events$onClick = _elm_community$typed_svg$TypedSvg_Events$simpleOn('click');
+var _elm_community$typed_svg$TypedSvg_Events$onFocusIn = _elm_community$typed_svg$TypedSvg_Events$simpleOn('focusin');
+var _elm_community$typed_svg$TypedSvg_Events$onFocusOut = _elm_community$typed_svg$TypedSvg_Events$simpleOn('focusout');
+var _elm_community$typed_svg$TypedSvg_Events$onMouseDown = _elm_community$typed_svg$TypedSvg_Events$simpleOn('mousedown');
+var _elm_community$typed_svg$TypedSvg_Events$onMouseMove = _elm_community$typed_svg$TypedSvg_Events$simpleOn('mousemove');
+var _elm_community$typed_svg$TypedSvg_Events$onMouseOut = _elm_community$typed_svg$TypedSvg_Events$simpleOn('mouseout');
+var _elm_community$typed_svg$TypedSvg_Events$onMouseOver = _elm_community$typed_svg$TypedSvg_Events$simpleOn('mouseover');
+var _elm_community$typed_svg$TypedSvg_Events$onMouseUp = _elm_community$typed_svg$TypedSvg_Events$simpleOn('mouseup');

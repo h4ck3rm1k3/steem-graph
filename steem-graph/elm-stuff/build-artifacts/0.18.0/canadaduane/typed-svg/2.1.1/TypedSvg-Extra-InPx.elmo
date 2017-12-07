@@ -1,0 +1,27 @@
+var _canadaduane$typed_svg$TypedSvg_Extra_InPx$centeredImage = F5(
+	function (href, w_, h_, x_, y_) {
+		return A2(
+			_canadaduane$typed_svg$TypedSvg$image,
+			{
+				ctor: '::',
+				_0: _canadaduane$typed_svg$TypedSvg_Attributes_InPx$x(x_ - (w_ / 2)),
+				_1: {
+					ctor: '::',
+					_0: _canadaduane$typed_svg$TypedSvg_Attributes_InPx$y(y_ - (h_ / 2)),
+					_1: {
+						ctor: '::',
+						_0: _canadaduane$typed_svg$TypedSvg_Attributes_InPx$width(w_),
+						_1: {
+							ctor: '::',
+							_0: _canadaduane$typed_svg$TypedSvg_Attributes_InPx$height(h_),
+							_1: {
+								ctor: '::',
+								_0: _canadaduane$typed_svg$TypedSvg_Attributes$xlinkHref(href),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			},
+			{ctor: '[]'});
+	});

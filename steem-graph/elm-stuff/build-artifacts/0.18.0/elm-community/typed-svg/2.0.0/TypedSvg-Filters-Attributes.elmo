@@ -1,0 +1,284 @@
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$z = function (value) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'z',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$turbulenceType = function (turbulenceType) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'type',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$turbulenceTypeToString(turbulenceType));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$funcType = function (funcType) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'type',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$funcTypeToString(funcType));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$targetY = function (yPosition) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'targetY',
+		_elm_lang$core$Basics$toString(yPosition));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$targetX = function (xPosition) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'targetX',
+		_elm_lang$core$Basics$toString(xPosition));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$surfaceScale = function (value) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'surfaceScale',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$seed = function (value) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'seed',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$scale = function (value) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'scale',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$result = function (reference) {
+	return A2(_elm_community$typed_svg$TypedSvg_Core$attribute, 'result', reference);
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$radius = F2(
+	function (xRadius, yRadius) {
+		return A2(
+			_elm_community$typed_svg$TypedSvg_Core$attribute,
+			'radius',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(xRadius),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					' ',
+					_elm_lang$core$Basics$toString(yRadius))));
+	});
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$preserveAlpha = function (applyOnlyToColorChannels) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'preserveAlpha',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$boolToString(applyOnlyToColorChannels));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$pointsAtZ = function (lightSourceZ) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'pointsAtZ',
+		_elm_lang$core$Basics$toString(lightSourceZ));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$pointsAtY = function (lightSourceY) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'pointsAtY',
+		_elm_lang$core$Basics$toString(lightSourceY));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$pointsAtX = function (lightSourceX) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'pointsAtX',
+		_elm_lang$core$Basics$toString(lightSourceX));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$order = F2(
+	function (orderX, orderY) {
+		return A2(
+			_elm_community$typed_svg$TypedSvg_Core$attribute,
+			'order',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(orderX),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					' ',
+					_elm_lang$core$Basics$toString(orderY))));
+	});
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$numOctaves = function ($int) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'numOctaves',
+		_elm_lang$core$Basics$toString($int));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$morphologyOperator = function (morphologyOperator) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'operator',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$morphologyOperatorToString(morphologyOperator));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$mode = function (mode) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'mode',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$modeToString(mode));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$limitingConeAngle = function (number) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'limitingConeAngle',
+		_elm_lang$core$Basics$toString(number));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$kernelUnitLength = F2(
+	function (dx, dy) {
+		return A2(
+			_elm_community$typed_svg$TypedSvg_Core$attribute,
+			'kernelUnitLength',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(dx),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					' ',
+					_elm_lang$core$Basics$toString(dy))));
+	});
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$kernelMatrix = function (numberList) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'kernelMatrix',
+		A2(
+			_elm_lang$core$String$join,
+			' ',
+			A2(_elm_lang$core$List$map, _elm_lang$core$Basics$toString, numberList)));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$k4 = function (value) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'k4',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$k3 = function (value) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'k3',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$k2 = function (value) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'k2',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$k1 = function (value) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'k1',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$in2 = function (value) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'in2',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$inValueToString(value));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$in_ = function (value) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'in',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$inValueToString(value));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$floodOpacity = function (opacity) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'floodOpacity',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$opacityToString(opacity));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$floodColor = function (floodColor) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'floodColor',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$floodColorToString(floodColor));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$filterUnits = function (coordinateSystem) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'filterUnits',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$coordinateSystemToString(coordinateSystem));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$filterRes = F2(
+	function (xPixels, yPixels) {
+		return A2(
+			_elm_community$typed_svg$TypedSvg_Core$attribute,
+			'filterRes',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(xPixels),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					' ',
+					_elm_lang$core$Basics$toString(yPixels))));
+	});
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$elevation = function (angle) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'elevation',
+		_elm_lang$core$Basics$toString(angle));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$edgeMode = function (edgeMode) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'edgeMode',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$edgeModeToString(edgeMode));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$divisor = function (value) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'divisor',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$diffuseConstant = function (kdValue) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'diffuseConstant',
+		_elm_lang$core$Basics$toString(kdValue));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$compositeOperator = function (compositeOperator) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'operator',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$compositeOperatorToString(compositeOperator));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$colorMatrixValues = function (string) {
+	return A2(_elm_community$typed_svg$TypedSvg_Core$attribute, 'values', string);
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$colorMatrixType = function (colorMatrixType) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'type',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$colorMatrixTypeToString(colorMatrixType));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$colorInterpolationFilters = function (colorInterpolation) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'color-interpolation-filters',
+		_elm_community$typed_svg$TypedSvg_TypesToStrings$colorInterpolationToString(colorInterpolation));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$bias = function (rangeShift) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'bias',
+		_elm_lang$core$Basics$toString(rangeShift));
+};
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$baseFrequency = F2(
+	function (xFrequency, yFrequency) {
+		return A2(
+			_elm_community$typed_svg$TypedSvg_Core$attribute,
+			'baseFrequency',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(xFrequency),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					' ',
+					_elm_lang$core$Basics$toString(yFrequency))));
+	});
+var _elm_community$typed_svg$TypedSvg_Filters_Attributes$azimuth = function (angle) {
+	return A2(
+		_elm_community$typed_svg$TypedSvg_Core$attribute,
+		'azimuth',
+		_elm_lang$core$Basics$toString(angle));
+};

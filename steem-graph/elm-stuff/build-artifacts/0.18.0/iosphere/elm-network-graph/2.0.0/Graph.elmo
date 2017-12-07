@@ -1,0 +1,37 @@
+var _iosphere$elm_network_graph$NetworkGraph$filterEdgesForNodes = F2(
+	function (edges, nodes) {
+		var identifiers = _elm_lang$core$Set$fromList(
+			A2(
+				_elm_lang$core$List$map,
+				function (_) {
+					return _.identifier;
+				},
+				nodes));
+		return A2(_iosphere$elm_network_graph$Graph_Edge$filterForIdentifiers, identifiers, edges);
+	});
+var _iosphere$elm_network_graph$NetworkGraph$Graph = F2(
+	function (a, b) {
+		return {edges: a, nodes: b};
+	});
+var _iosphere$elm_network_graph$NetworkGraph$init = _iosphere$elm_network_graph$NetworkGraph$Graph;
+var _iosphere$elm_network_graph$NetworkGraph$empty = A2(
+	_iosphere$elm_network_graph$NetworkGraph$init,
+	{ctor: '[]'},
+	{ctor: '[]'});
+var _iosphere$elm_network_graph$NetworkGraph$filter = F2(
+	function (filterBy, graph) {
+		var filteredNodes = A2(_elm_lang$core$List$filter, filterBy, graph.nodes);
+		var filteredEdges = A2(_iosphere$elm_network_graph$NetworkGraph$filterEdgesForNodes, graph.edges, filteredNodes);
+		return A2(_iosphere$elm_network_graph$NetworkGraph$Graph, filteredEdges, filteredNodes);
+	});
+var _iosphere$elm_network_graph$NetworkGraph$filterByName = function (namesPrefix) {
+	var filterBy = function (node) {
+		return _elm_lang$core$Native_Utils.eq(
+			A2(
+				_elm_lang$core$List$take,
+				_elm_lang$core$List$length(namesPrefix),
+				node.name),
+			namesPrefix);
+	};
+	return _iosphere$elm_network_graph$NetworkGraph$filter(filterBy);
+};

@@ -1,0 +1,57 @@
+var _jweir$sparkline$Sparkline_Extras$x = function (_p0) {
+	var _p1 = _p0;
+	return _p1._0;
+};
+var _jweir$sparkline$Sparkline_Extras$y = function (_p2) {
+	var _p3 = _p2;
+	return _p3._1;
+};
+var _jweir$sparkline$Sparkline_Extras$extent = F2(
+	function (axes, data) {
+		var getter = function () {
+			var _p4 = axes;
+			if (_p4.ctor === 'X') {
+				return _jweir$sparkline$Sparkline_Extras$x;
+			} else {
+				return _jweir$sparkline$Sparkline_Extras$y;
+			}
+		}();
+		var _p5 = _elm_lang$core$List$head(data);
+		if (_p5.ctor === 'Nothing') {
+			return {ctor: '[]'};
+		} else {
+			var _p11 = _p5._0;
+			var _p6 = A3(
+				_elm_lang$core$List$foldr,
+				F2(
+					function (point, _p7) {
+						var _p8 = _p7;
+						var _p10 = _p8._0;
+						var _p9 = _p8._1;
+						return {
+							ctor: '_Tuple2',
+							_0: (_elm_lang$core$Native_Utils.cmp(
+								getter(point),
+								getter(_p10)) < 0) ? point : _p10,
+							_1: (_elm_lang$core$Native_Utils.cmp(
+								getter(point),
+								getter(_p9)) > 0) ? point : _p9
+						};
+					}),
+				{ctor: '_Tuple2', _0: _p11, _1: _p11},
+				data);
+			var min = _p6._0;
+			var max = _p6._1;
+			return {
+				ctor: '::',
+				_0: min,
+				_1: {
+					ctor: '::',
+					_0: max,
+					_1: {ctor: '[]'}
+				}
+			};
+		}
+	});
+var _jweir$sparkline$Sparkline_Extras$Y = {ctor: 'Y'};
+var _jweir$sparkline$Sparkline_Extras$X = {ctor: 'X'};

@@ -1,0 +1,217 @@
+var _justinmimbs$elm_arc_diagram$Digraph$last = function (list) {
+	return _elm_lang$core$List$head(
+		A2(
+			_elm_lang$core$List$drop,
+			_elm_lang$core$List$length(list) - 1,
+			list));
+};
+var _justinmimbs$elm_arc_diagram$Digraph$successors = function (n) {
+	return function (_p0) {
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			_elm_lang$core$Set$empty,
+			A2(_elm_lang$core$Dict$get, n, _p0));
+	};
+};
+var _justinmimbs$elm_arc_diagram$Digraph$distancesFromHelp = F4(
+	function (prevResult, distance, nodes, adjList) {
+		distancesFromHelp:
+		while (true) {
+			var result = A3(
+				_elm_lang$core$Set$foldl,
+				A2(_elm_lang$core$Basics$flip, _elm_lang$core$Dict$insert, distance),
+				prevResult,
+				nodes);
+			var nextNodes = A3(
+				_elm_lang$core$Basics$flip,
+				_elm_lang$core$Set$diff,
+				_elm_lang$core$Set$fromList(
+					_elm_lang$core$Dict$keys(result)),
+				A3(
+					_elm_lang$core$Set$foldl,
+					function (n) {
+						return _elm_lang$core$Set$union(
+							A2(_justinmimbs$elm_arc_diagram$Digraph$successors, n, adjList));
+					},
+					_elm_lang$core$Set$empty,
+					nodes));
+			if (_elm_lang$core$Set$isEmpty(nextNodes)) {
+				return result;
+			} else {
+				var _v0 = result,
+					_v1 = distance + 1,
+					_v2 = nextNodes,
+					_v3 = adjList;
+				prevResult = _v0;
+				distance = _v1;
+				nodes = _v2;
+				adjList = _v3;
+				continue distancesFromHelp;
+			}
+		}
+	});
+var _justinmimbs$elm_arc_diagram$Digraph$distancesFrom = function (n) {
+	return A3(
+		_justinmimbs$elm_arc_diagram$Digraph$distancesFromHelp,
+		_elm_lang$core$Dict$empty,
+		0,
+		_elm_lang$core$Set$singleton(n));
+};
+var _justinmimbs$elm_arc_diagram$Digraph$degree = function (n) {
+	return function (_p1) {
+		return _elm_lang$core$Set$size(
+			A2(_justinmimbs$elm_arc_diagram$Digraph$successors, n, _p1));
+	};
+};
+var _justinmimbs$elm_arc_diagram$Digraph$isSimpleCycle = function (path) {
+	return A2(
+		_elm_lang$core$Maybe$withDefault,
+		false,
+		A3(
+			_elm_lang$core$Maybe$map2,
+			F2(
+				function (x, y) {
+					return _elm_lang$core$Native_Utils.eq(x, y);
+				}),
+			_elm_lang$core$List$head(path),
+			_justinmimbs$elm_arc_diagram$Digraph$last(path)));
+};
+var _justinmimbs$elm_arc_diagram$Digraph$degenerate = function (edges) {
+	degenerate:
+	while (true) {
+		var ys = A2(_elm_lang$core$Set$map, _elm_lang$core$Tuple$second, edges);
+		var xs = A2(_elm_lang$core$Set$map, _elm_lang$core$Tuple$first, edges);
+		var edges2 = A2(
+			_elm_lang$core$Set$filter,
+			function (_p2) {
+				var _p3 = _p2;
+				return A2(_elm_lang$core$Set$member, _p3._0, ys) && A2(_elm_lang$core$Set$member, _p3._1, xs);
+			},
+			edges);
+		if (_elm_lang$core$Set$isEmpty(edges2) || _elm_lang$core$Native_Utils.eq(
+			_elm_lang$core$Set$size(edges2),
+			_elm_lang$core$Set$size(edges))) {
+			return edges2;
+		} else {
+			var _v5 = edges2;
+			edges = _v5;
+			continue degenerate;
+		}
+	}
+};
+var _justinmimbs$elm_arc_diagram$Digraph$filterPathsFromHelp = F4(
+	function (pred, adjList, prePath, n) {
+		var path = {ctor: '::', _0: n, _1: prePath};
+		return A2(_elm_lang$core$List$member, n, prePath) ? {
+			ctor: '::',
+			_0: path,
+			_1: {ctor: '[]'}
+		} : A2(
+			_elm_lang$core$Maybe$withDefault,
+			{
+				ctor: '::',
+				_0: path,
+				_1: {ctor: '[]'}
+			},
+			A2(
+				_elm_lang$core$Maybe$map,
+				function (_p4) {
+					return A2(
+						_elm_lang$core$List$concatMap,
+						A3(_justinmimbs$elm_arc_diagram$Digraph$filterPathsFromHelp, pred, adjList, path),
+						_elm_lang$core$Set$toList(
+							A2(_elm_lang$core$Set$filter, pred, _p4)));
+				},
+				A2(_elm_lang$core$Dict$get, n, adjList)));
+	});
+var _justinmimbs$elm_arc_diagram$Digraph$filterPathsFrom = F3(
+	function (pred, n, adjList) {
+		return A2(
+			_elm_lang$core$List$map,
+			_elm_lang$core$List$reverse,
+			A4(
+				_justinmimbs$elm_arc_diagram$Digraph$filterPathsFromHelp,
+				pred,
+				adjList,
+				{ctor: '[]'},
+				n));
+	});
+var _justinmimbs$elm_arc_diagram$Digraph$pathsFrom = _justinmimbs$elm_arc_diagram$Digraph$filterPathsFrom(
+	_elm_lang$core$Basics$always(true));
+var _justinmimbs$elm_arc_diagram$Digraph$transpose = A2(
+	_elm_lang$core$Dict$foldl,
+	F3(
+		function (x, ys, adjListT) {
+			return A3(
+				_elm_lang$core$Set$foldl,
+				function (y) {
+					return A2(
+						_elm_lang$core$Dict$update,
+						y,
+						function (_p5) {
+							return _elm_lang$core$Maybe$Just(
+								A2(
+									_elm_lang$core$Set$insert,
+									x,
+									A2(_elm_lang$core$Maybe$withDefault, _elm_lang$core$Set$empty, _p5)));
+						});
+				},
+				adjListT,
+				ys);
+		}),
+	_elm_lang$core$Dict$empty);
+var _justinmimbs$elm_arc_diagram$Digraph$fromAdjacencyList = A2(
+	_elm_lang$core$Dict$foldl,
+	F2(
+		function (x, ys) {
+			return _elm_lang$core$Set$union(
+				A2(
+					_elm_lang$core$Set$map,
+					F2(
+						function (v0, v1) {
+							return {ctor: '_Tuple2', _0: v0, _1: v1};
+						})(x),
+					ys));
+		}),
+	_elm_lang$core$Set$empty);
+var _justinmimbs$elm_arc_diagram$Digraph$toAdjacencyList = A2(
+	_elm_lang$core$Set$foldl,
+	function (_p6) {
+		var _p7 = _p6;
+		return A2(
+			_elm_lang$core$Dict$update,
+			_p7._0,
+			function (_p8) {
+				return _elm_lang$core$Maybe$Just(
+					A2(
+						_elm_lang$core$Set$insert,
+						_p7._1,
+						A2(_elm_lang$core$Maybe$withDefault, _elm_lang$core$Set$empty, _p8)));
+			});
+	},
+	_elm_lang$core$Dict$empty);
+var _justinmimbs$elm_arc_diagram$Digraph$findCycles = function (edges) {
+	var edges2 = _justinmimbs$elm_arc_diagram$Digraph$degenerate(edges);
+	if (_elm_lang$core$Set$isEmpty(edges2)) {
+		return {ctor: '[]'};
+	} else {
+		var ysByX = _justinmimbs$elm_arc_diagram$Digraph$toAdjacencyList(edges2);
+		var xs = A2(_elm_lang$core$Set$map, _elm_lang$core$Tuple$first, edges2);
+		return A2(
+			_elm_lang$core$List$concatMap,
+			function (x) {
+				return A2(
+					_elm_lang$core$List$filter,
+					_justinmimbs$elm_arc_diagram$Digraph$isSimpleCycle,
+					A3(
+						_justinmimbs$elm_arc_diagram$Digraph$filterPathsFrom,
+						F2(
+							function (x, y) {
+								return _elm_lang$core$Native_Utils.cmp(x, y) < 1;
+							})(x),
+						x,
+						ysByX));
+			},
+			_elm_lang$core$Set$toList(xs));
+	}
+};

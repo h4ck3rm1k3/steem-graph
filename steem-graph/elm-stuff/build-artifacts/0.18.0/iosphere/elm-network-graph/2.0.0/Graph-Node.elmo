@@ -1,0 +1,27 @@
+var _iosphere$elm_network_graph$Graph_Node$dictFromList = function (nodes) {
+	return A3(
+		_elm_lang$core$List$foldl,
+		F2(
+			function (node, dict) {
+				return A3(_elm_lang$core$Dict$insert, node.identifier, node, dict);
+			}),
+		_elm_lang$core$Dict$empty,
+		nodes);
+};
+var _iosphere$elm_network_graph$Graph_Node$identifierFromName = function (name) {
+	return A2(_elm_lang$core$String$join, '-', name);
+};
+var _iosphere$elm_network_graph$Graph_Node$namePrefix = F2(
+	function (n, name) {
+		return A2(_elm_lang$core$List$take, n, name);
+	});
+var _iosphere$elm_network_graph$Graph_Node$fromName = function (name) {
+	return {
+		identifier: _iosphere$elm_network_graph$Graph_Node$identifierFromName(name),
+		name: name
+	};
+};
+var _iosphere$elm_network_graph$Graph_Node$Node = F2(
+	function (a, b) {
+		return {identifier: a, name: b};
+	});

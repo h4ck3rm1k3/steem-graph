@@ -1,0 +1,65 @@
+var _iosphere$elm_network_graph$Graph_Colored_Decorator$coloredNode = F3(
+	function (depth, colors, node) {
+		return A2(
+			_iosphere$elm_network_graph$Graph_Colored_Node$fromNode,
+			node,
+			A2(
+				_elm_lang$core$Maybe$withDefault,
+				_iosphere$elm_network_graph$Graph_Colored_Color$fallback,
+				A2(
+					_elm_lang$core$Dict$get,
+					A2(_iosphere$elm_network_graph$Graph_Node$namePrefix, depth, node.name),
+					colors)));
+	});
+var _iosphere$elm_network_graph$Graph_Colored_Decorator$colors = F2(
+	function (depth, moduleNames) {
+		var allColors = _iosphere$elm_network_graph$Graph_Colored_Color$list;
+		var colorsLength = _elm_lang$core$List$length(allColors);
+		var topModuleNames = _elm_lang$core$List$sort(
+			_elm_lang$core$Set$toList(
+				_elm_lang$core$Set$fromList(
+					A2(
+						_elm_lang$core$List$map,
+						_iosphere$elm_network_graph$Graph_Node$namePrefix(depth),
+						moduleNames))));
+		var colorsForModuleNames = A2(
+			_elm_lang$core$List$indexedMap,
+			F2(
+				function (index, name) {
+					return A2(
+						F2(
+							function (v0, v1) {
+								return {ctor: '_Tuple2', _0: v0, _1: v1};
+							}),
+						name,
+						A2(
+							_elm_lang$core$Maybe$withDefault,
+							_iosphere$elm_network_graph$Graph_Colored_Color$fallback,
+							A2(
+								_elm_community$list_extra$List_Extra$getAt,
+								A2(_elm_lang$core$Basics_ops['%'], index, colorsLength),
+								allColors)));
+				}),
+			topModuleNames);
+		return _elm_lang$core$Dict$fromList(colorsForModuleNames);
+	});
+var _iosphere$elm_network_graph$Graph_Colored_Decorator$coloredGraph = F2(
+	function (depth, uncoloredGraph) {
+		var moduleNames = A2(
+			_elm_lang$core$List$map,
+			function (_) {
+				return _.name;
+			},
+			uncoloredGraph.nodes);
+		var strictlyPositiveDepth = A2(_elm_lang$core$Basics$max, 1, depth);
+		var moduleColors = A2(_iosphere$elm_network_graph$Graph_Colored_Decorator$colors, strictlyPositiveDepth, moduleNames);
+		var coloredNodes = A2(
+			_elm_lang$core$List$map,
+			A2(_iosphere$elm_network_graph$Graph_Colored_Decorator$coloredNode, strictlyPositiveDepth, moduleColors),
+			uncoloredGraph.nodes);
+		return {
+			ctor: '_Tuple2',
+			_0: moduleColors,
+			_1: A2(_iosphere$elm_network_graph$Graph$Graph, uncoloredGraph.edges, coloredNodes)
+		};
+	});
