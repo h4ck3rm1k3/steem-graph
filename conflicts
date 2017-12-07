@@ -1,0 +1,2 @@
+elm-make: Could not find type constructor `SimpleGraph.Node` while checking types.
+elm-make: thread blocked indefinitely in an MVar operation
